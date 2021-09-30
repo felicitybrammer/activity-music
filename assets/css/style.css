@@ -2,9 +2,45 @@
     --primary: #E4f9FF;
     --secondary: #12CAD6;
     --tertiary: #0FABBC;
-    --light-dark: #FA1616;
+    --bright: #FA1616;
     --dark: #38302e;
     --border-radius: .3rem;
   }
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--dark);
+    line-height: 1.5;
+    font-size: 16px;
+  }
   
- 
+ .hero-container img {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     height: 800px;
+     -webkit-transform: scaleX(-1);
+     transform: scaleX(-1);   
+ }
+
+ h1 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.25;
+ }
+
+ main {
+    margin: 20px auto;
+    width: 94%;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
