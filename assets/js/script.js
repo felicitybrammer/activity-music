@@ -1,9 +1,27 @@
 var genereListToatal =[];
 
+function songListDisplay(songtitle,songuri){
+  //for css, list class: songlist id:musicList
+  console.log("works!: ");
+  var musicsection = document.getElementById("musicList");
+  var musicitem = document.createElement("a");
+  musicitem.innerHTML = songtitle;
+  var br = document.createElement("br");
+  console.log("songtotle: "+songtitle);
+  musicsection.appendChild(musicitem);
+  musicsection.appendChild(br);
+  musicitem.setAttribute("id",songtitle);
+  musicitem.setAttribute("class","songlist");
+  //for develop purpose, should be deleted 
+  musicitem.setAttribute("href",songuri);
+
+}
+
+
 $(".searchBtn").on("click", function(event) {
 var bpmvalue = $(".search").val(); 
 // limit the bpm range from 40 to 220
-if(bpmvalue >40&&bpmvalue<220){
+if(bpmvalue >40 &&bpmvalue <220){
 /**api cors solved with extension, rejected fail to fetch problem */
 //console.log(data)
 fetch('https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm='+bpmvalue)
@@ -15,13 +33,16 @@ console.log(data);
 var bpmListLength = data['tempo'].length;
 for(var i=0;i<bpmListLength;i++){
     var genereList = data['tempo'][i]['artist']['genres'];
+    var songimg = data['tempo'][i]['album']['img'];
+    var songuri = data['tempo'][i]['song_uri'];
+    var songid = data['tempo'][i]['song_id'];
+    var songtitle = data['tempo'][i]['song_title'];
+    var songartist = data['tempo'][i]['artist']['name'];
  // console.log(generaList.length);
- if(genereList!=null){
-  for(var j=0; j<genereList.length;j++){
-    var gname = genereList[j];
-    //console.log("genera: "+gname);
-  }
-}
+ 
+ //song list display
+  songListDisplay(songtitle,songuri);
+
   var diff = $(genereList).not(genereListToatal).get();
   //console.log("diff: "+diff);
   for(var k =0; k<diff.length;k++){
@@ -30,14 +51,13 @@ for(var i=0;i<bpmListLength;i++){
 }
 console.log("totalList:"+genereListToatal);
 // put the list
-for(var l =0; l<genereListToatal.length;l++){
-  var listsection = document.getElementById("list");
+for(var j =0; j<genereListToatal.length;j++){
+  var genresection = document.getElementById("genreList");
   var genereitem = document.createElement("button");
-  genereitem.innerHTML = genereListToatal[l];
-  list.appendChild(genereitem);
+  genereitem.innerHTML = genereListToatal[j];
+  genresection.appendChild(genereitem);
   genereitem.setAttribute("id",genereitem);
   genereitem.setAttribute("class","genereoption");
-  
 }
 
 })

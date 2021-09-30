@@ -21,6 +21,12 @@ div{
 .genereoption{
 background-color: var(--genre-background-color);
 color: var(--genre-text-color);
+border-radius: 12px;
 }
 
 
+.genereoption:hover{
+    background-color:var(--genre-hover-background);
+    color: var(--genre-hover-text);
+    border-radius: 12px;
+}
