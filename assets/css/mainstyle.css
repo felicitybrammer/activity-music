@@ -1,3 +1,7 @@
+
+
+
+
 :root {
     --primary: #E4f9FF;
     --secondary: #12CAD6;
@@ -81,6 +85,7 @@
     margin: 3.5%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
+
 }
 
 .parameter-form h2 {
@@ -139,4 +144,16 @@ div{
     display: inline-block;
     margin-left: 20px;
     margin-top: 20px;
+}
+.genereoption{
+background-color: var(--genre-background-color);
+color: var(--genre-text-color);
+border-radius: 12px;
+}
+
+
+.genereoption:hover{
+    background-color:var(--genre-hover-background);
+    color: var(--genre-hover-text);
+    border-radius: 12px;
 }
