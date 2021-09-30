@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train to the beat</title>
+    <link rel="icon" type="image/png" href="./img/icon.jpg"/>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/mainstyle.css">
+</head>
+<body>
+
+    <!-- Header + Navigation bar -->
+    <header>
+        <div class="logo">
+            <img src ="img/icon.jpg" alt="BPM logo">
+        </div>
+        <h1>Train to the beat!</h1>
+    </header>
+    <div class="hero-container">
+        <img src="assets/images/images-1.jpg" />
+    </div>
+
+    <!-- Initial form for choosing parameters -->
+    <main>
+        <div class="parameter-form">
+            <h2>Select your preferences:</h2>
+            <p>Choose from the listed options to generate a training playlist!</p>
+                <label for="BPM">Enter your desired beats per minute, they must range from 40 to 220</label>
+                <input class="search" type="number" placeholder="Beats per minute" maxlength="3">
+                <div id="genreList">
+                    
+                </div>    
+                <button class="searchBtn" type="submit" data-inline="true" >Search</button>
+        </div>
+        
+        <!-- Placeholder for list of songs generated to drag or play from -->
+        <div id="musicList">
+        </div>    
+    </main>   
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="./assets/js/script.js"></script>
+        
+</body>
+</html>
