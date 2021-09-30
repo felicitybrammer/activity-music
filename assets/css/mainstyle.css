@@ -1,0 +1,13 @@
+.search{
+outline:none;
+font-size: 14px;
+font-weight:700;
+margin:0px;
+}
+div{
+    position: relative;
+    display: table-cell;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+}
