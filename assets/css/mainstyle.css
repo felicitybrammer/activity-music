@@ -1,3 +1,10 @@
+:root{
+--genre-background-color:lightblue;
+--genre-text-color:darkblue;
+--genre-hover-background:white;
+--genre-hover-text:lightblue;
+}
+
 .search{
 outline:none;
 font-size: 14px;
@@ -11,3 +18,9 @@ div{
     margin-left: 20px;
     margin-top: 20px;
 }
+.genereoption{
+background-color: var(--genre-background-color);
+color: var(--genre-text-color);
+}
+
+
