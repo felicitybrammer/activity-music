@@ -1,16 +1,143 @@
-:root{
---genre-background-color:lightblue;
---genre-text-color:darkblue;
---genre-hover-background:white;
---genre-hover-text:lightblue;
+
+
+
+
+:root {
+    --primary: #E4f9FF;
+    --secondary: #12CAD6;
+    --tertiary: #0FABBC;
+    --bright: #FA1616;
+    --dark: #38302e;
+    --border-radius: .3rem;
+  }
+  * {
+    margin: 0;
+    padding: 0;  
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--primary);
+    margin: 0;
+    padding: 0;
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--dark);
+    line-height: 1.5;
+    font-size: 16px;
+  }
+
+  .logo {
+      display: flex;
+      justify-content: center;
+      margin-right: 40px;
+      width: 75px;
+      height: 75px;
+  }
+  
+ .hero-container img {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     height: 800px;
+     -webkit-transform: scaleX(-1);
+     transform: scaleX(-1);   
+ }
+
+ header {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 35px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    top: 0;
+    border-bottom: 2px solid var(--tertiary);
+ }
+
+ header h1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--dark);
+    line-height: 1.25;
+ }
+
+ main {
+    margin: 20px auto;
+    width: 94%;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
+
+.parameter-form {
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid var(--dark);
+    background-color: rgba(252, 56, 89, 0.8);
+    color: var(--dark);
+    padding: 20px;
+    width: 40%;
+    margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+
 }
 
-.search{
-outline:none;
-font-size: 14px;
-font-weight:700;
-margin:0px;
+.parameter-form h2 {
+    font-size: 24px;
+    margin: 0;
 }
+
+.parameter-form p {
+    display: block;
+    margin: 5px 0 15px 0;
+}
+
+.parameter-form form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-input {
+    border: 1px solid var(--dark);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--dark);
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.form-input:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+.searchBtn {
+    color: var(--dark);
+    background-color: var(--tertiary);
+    border: 1px solid var(--dark);
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    width: 100px;
+    transition: all 0.3s ease;
+}
+
+.searchBtn:hover {
+    background-color: var(--secondary);
+    cursor: pointer;
+}
+
 div{
     position: relative;
     display: table-cell;

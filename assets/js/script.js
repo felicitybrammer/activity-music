@@ -19,9 +19,11 @@ function songListDisplay(songtitle,songuri,songartist){
 
 
 $(".searchBtn").on("click", function(event) {
+
 var bpmvalue = $(".search").val(); 
 // limit the bpm range from 40 to 220
 if(bpmvalue >40 &&bpmvalue <220){
+
 /**api cors solved with extension, rejected fail to fetch problem */
 //console.log(data)
 fetch('https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm='+bpmvalue)
