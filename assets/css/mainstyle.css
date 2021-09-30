@@ -7,8 +7,7 @@
     --border-radius: .3rem;
   }
   * {
-    margin: 0;
-    padding: 0;  
+
     box-sizing: border-box;
   }
 
@@ -16,11 +15,13 @@
     background-color: var(--primary);
     margin: 0;
     padding: 0;
-    font-family: "IBM Plex Sans", sans-serif;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
     color: var(--dark);
     line-height: 1.5;
     font-size: 16px;
   }
+
 
   .logo {
       display: flex;
@@ -29,6 +30,7 @@
       width: 75px;
       height: 75px;
   }
+
   
  .hero-container img {
      width: 100%;
@@ -36,8 +38,11 @@
      flex-wrap: wrap;
      height: 800px;
      -webkit-transform: scaleX(-1);
-     transform: scaleX(-1);   
+
+     transform: scaleX(-1); 
+      
  }
+
 
  header {
     font-family: Arial, Helvetica, sans-serif;
@@ -68,6 +73,7 @@
   p {
     font-size: 1.2rem;
   }
+
   
 
 .parameter-form {
@@ -140,3 +146,4 @@ div{
     margin-left: 20px;
     margin-top: 20px;
 }
+
