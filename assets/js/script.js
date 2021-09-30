@@ -1,11 +1,11 @@
 var genereListToatal =[];
 
-function songListDisplay(songtitle,songuri){
+function songListDisplay(songtitle,songuri,songartist){
   //for css, list class: songlist id:musicList
   console.log("works!: ");
   var musicsection = document.getElementById("musicList");
   var musicitem = document.createElement("a");
-  musicitem.innerHTML = songtitle;
+  musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
   console.log("songtotle: "+songtitle);
   musicsection.appendChild(musicitem);
@@ -41,7 +41,7 @@ for(var i=0;i<bpmListLength;i++){
  // console.log(generaList.length);
  
  //song list display
-  songListDisplay(songtitle,songuri);
+  songListDisplay(songtitle,songuri,songartist);
 
   var diff = $(genereList).not(genereListToatal).get();
   //console.log("diff: "+diff);
