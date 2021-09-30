@@ -26,7 +26,8 @@
      flex-wrap: wrap;
      height: 800px;
      -webkit-transform: scaleX(-1);
-     transform: scaleX(-1);   
+     transform: scaleX(-1); 
+      
  }
 
  h1 {
