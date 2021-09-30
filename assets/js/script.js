@@ -1,7 +1,7 @@
 
 
 $(".searchBtn").on("click", function(event) {
-var bpmvalue = $(".search").val(); 
+var bpmvalue = $(".BPM").val(); 
 console.log(bpmvalue);
 
 /**api cors solved with extension, rejected fail to fetch problem */
