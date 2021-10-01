@@ -14,27 +14,33 @@
     <!-- Header + Navigation bar -->
     <header>
         <div class="logo">
-            <img src ="img/icon.jpg" alt="BPM logo">
+            <img src ="img/iconfinder-icon.svg" alt="BPM logo">
         </div>
         <h1>Train to the beat!</h1>
     </header>
-    <div class="hero-container">
-        <img src="assets/images/images-1.jpg" />
-    </div>
 
     <!-- Initial form for choosing parameters -->
     <main>
+        <section class="hero-container">
+            <div class="cta">
+                <h2>Lorem ipsum dolor.</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, quaerat! Optio aliquid nulla odio? Laudantium amet, fugiat, earum saepe repudiandae corrupti voluptate incidunt similique adipisci blanditiis voluptas facilis! Quis, pariatur.
+                </p>
+            </div>
         <div class="parameter-form">
-            <h2>Select your preferences:</h2>
+            <h3>Select your preferences:</h3>
             <p>Choose from the listed options to generate a training playlist!</p>
+            <div>
+
                 <label for="BPM">Enter your desired beats per minute, they must range from 40 to 220</label>
                 <input class="search" type="number" placeholder="Beats per minute" maxlength="3">
                 <div id="genreList">
                     
                 </div>    
                 <button class="searchBtn" type="submit" data-inline="true" >Search</button>
-            </form>
-        </div>
+            </div>
+        </section>
         
         <!-- Placeholder for list of songs generated to drag or play from -->
         <div id="musicList">
