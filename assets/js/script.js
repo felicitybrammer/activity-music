@@ -1,26 +1,77 @@
-var genereListToatal =[];
+var genereList =[];
+var songDetailList =[];
 
+/**display all the songs from the API */
 function songListDisplay(songtitle,songuri,songartist){
-  //for css, list class: songlist id:musicList
-  console.log("works!: ");
+  //for css, list class: songlist div id:musicList, each song id: song title
+  //console.log("works!: ");
   var musicsection = document.getElementById("musicList");
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
-  console.log("songtotle: "+songtitle);
+ // console.log("songtotle: "+songtitle);
   musicsection.appendChild(musicitem);
   musicsection.appendChild(br);
   musicitem.setAttribute("id",songtitle);
   musicitem.setAttribute("class","songlist");
   //for develop purpose, should be deleted 
   musicitem.setAttribute("href",songuri);
+}
+/**display all the genre based on BPM and first 250 */
+function songGenreDisplay(genereListToatal){
+  //for css, genrelist class: genereoption, genrelist div id: genreList, element for each <button>, Button id : shown as html name
+  for(var j =0; j<genereListToatal.length;j++){
+    var genresection = document.getElementById("genreList");
+    var genereitem = document.createElement("button");
+    genereitem.innerHTML = genereListToatal[j];
+    genresection.appendChild(genereitem);
+   // genereitem.setAttribute("id",j);
+   //onClick="reply_click(this.id)
+   genereitem.setAttribute("name",genereitem);
+    genereitem.setAttribute("id",genereitem);
+   // genereitem.setAttribute("onClick",reply_click());
+    genereitem.setAttribute("class","genereoption");
+  }
+}
+/**remove all display while refresh the search */
+function removeall(){
+  var musicsection = document.getElementById("musicList");
+  musicsection.innerHTML='';
+  var genresection = document.getElementById("genreList");
+  genresection.innerHTML='';
+}
+/**for genere list to be clickable && change based on genere*/
+function click(){
+  $('#genreList').on('click', '.genereoption', function(e) {
+    var generename = e.target.innerHTML;
+    var genereSongList=[];
+    var testnum =0;
+    //console.log(generename);
+    for(var q=0; q<songDetailList.length;q++){
+      if(songDetailList[q][0]==generename){
+        testnum++;
+        //console.log(songDetailList[q][0]);
+        genereSongList.push(songDetailList[q]);
+      } 
+    }
+    console.log("num: "+testnum);
+      console.log("length: "+genereSongList.length);
+      console.log(genereSongList[0][1]+"QQQ"+genereSongList[0][3]+" QQQQ"+genereSongList[0][2]);
+      removeall();
+    for(var p=0; p<genereSongList.length;p++){
+      songListDisplay(genereSongList[p][1],genereSongList[p][3],genereSongList[p][2]);
+    } 
+})
 
 }
+/**list add to local */
+
+
 
 
 $(".searchBtn").on("click", function(event) {
-
 var bpmvalue = $(".search").val(); 
+removeall();
 // limit the bpm range from 40 to 220
 if(bpmvalue >40 &&bpmvalue <220){
 
@@ -34,34 +85,37 @@ console.log(data);
  * tempo -> get songid -> same songid from artist -> from artist object get genres */
 var bpmListLength = data['tempo'].length;
 for(var i=0;i<bpmListLength;i++){
-    var genereList = data['tempo'][i]['artist']['genres'];
+    var genere = data['tempo'][i]['artist']['genres'];
     var songimg = data['tempo'][i]['album']['img'];
     var songuri = data['tempo'][i]['song_uri'];
     var songid = data['tempo'][i]['song_id'];
     var songtitle = data['tempo'][i]['song_title'];
     var songartist = data['tempo'][i]['artist']['name'];
  // console.log(generaList.length);
+    var singleDetail =[];
+    //0. genres,1. songtitle,2. songartist,3. songuri
+    singleDetail.push(genere);
+    singleDetail.push(songtitle);
+    singleDetail.push(songartist);
+    singleDetail.push(songuri);
+    songDetailList.push(singleDetail);
+
  
  //song list display
   songListDisplay(songtitle,songuri,songartist);
 
-  var diff = $(genereList).not(genereListToatal).get();
+  var diff = $(genere).not(genereList).get();
   //console.log("diff: "+diff);
   for(var k =0; k<diff.length;k++){
-    genereListToatal.push(diff[k]);
+    genereList.push(diff[k]);
   }
 }
-console.log("totalList:"+genereListToatal);
+//console.log("totalList:"+genereListToatal);
 // put the list
-for(var j =0; j<genereListToatal.length;j++){
-  var genresection = document.getElementById("genreList");
-  var genereitem = document.createElement("button");
-  genereitem.innerHTML = genereListToatal[j];
-  genresection.appendChild(genereitem);
-  genereitem.setAttribute("id",genereitem);
-  genereitem.setAttribute("class","genereoption");
-}
-
+songGenreDisplay(genereList);
+//console.log("total: "+songDetailList.length);
+//console.log("details_test1: "+songDetailList[0]);
+//console.log("details_test2: "+songDetailList[0][1]);
 })
 
 .catch(error => "error");
@@ -74,7 +128,7 @@ else{
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
 
-
+click();
 
 
 
