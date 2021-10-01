@@ -28,25 +28,22 @@
         <div class="parameter-form">
             <h2>Select your preferences:</h2>
             <p>Choose from the listed options to generate a training playlist!</p>
-            <form>
+           
                 <label for="BPM">Enter your desired beats per minute, they must range from 40 to 220</label>
-                <input class="form-input" type="number" placeholder="Beats per minute" maxlength="3">
+                <input class="search" type="number" placeholder="Beats per minute" maxlength="3">
                 <label for="genres">Select a genre</label>
-                <select name="genres" id="genres" class="form-input">
-                    <option value="Rock">Rock</option>
-                    <option value="Hip-hop">Hip-hop</option>
-                    <option value="Classical">Classical</option>
-                </select>    
-                <button class="searchBtn" type="submit" data-inline="true" >Search</button>
-            </form>
+                <div id="genreList"></div>    
+                <button class="searchBtn" type="submit" data-inline="true">Search</button>
         </div>
         
         <!-- Placeholder for list of songs generated to drag or play from -->
-            <ul>
-                <li></li>
-                <li></li>
-            </ul>
+        <div id="musicList"></div> 
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp show_artwork=true;">
+</iframe>
+   
     </main>   
+
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="./assets/js/script.js"></script>
         
