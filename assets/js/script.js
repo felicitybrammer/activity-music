@@ -3,14 +3,20 @@ var songDetailList =[];
 
 /**display all the songs from the API */
 function songListDisplay(songtitle,songuri,songartist){
-  //for css, list class: songlist div id:musicList, each song id: song title
+  //for css, list class: songlist div id:musicList, each song id: song title;
+  //button for each song to add to the localstorage, button id: each songuri, buttonclass: addbutton;
   //console.log("works!: ");
   var musicsection = document.getElementById("musicList");
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
+  var addbutton = document.createElement("button");
+  addbutton.innerHTML="Add +"
+  addbutton.setAttribute('id',songuri);
+  addbutton.setAttribute('class','addbutton');
  // console.log("songtotle: "+songtitle);
   musicsection.appendChild(musicitem);
+  musicsection.appendChild(addbutton);
   musicsection.appendChild(br);
   musicitem.setAttribute("id",songtitle);
   musicitem.setAttribute("class","songlist");
@@ -41,30 +47,42 @@ function removeall(){
   genresection.innerHTML='';
 }
 /**for genere list to be clickable && change based on genere*/
-function click(){
+function clickGenere(){
   $('#genreList').on('click', '.genereoption', function(e) {
     var generename = e.target.innerHTML;
     var genereSongList=[];
     var testnum =0;
     //console.log(generename);
     for(var q=0; q<songDetailList.length;q++){
-      if(songDetailList[q][0]==generename){
+      currentgenere=[];
+      currentgenere.push(songDetailList[q][0]);
+     // console.log(currentgenere[0]);
+    //  / console.log(currentgenere.length);
+      for(var r=0; r<currentgenere.length;r++){
+      if(currentgenere[0]!=null&&currentgenere[0][r]==generename){
         testnum++;
+        //console.log("G: "+currentgenere[r]);
+       // console.log("title: "+songDetailList[q][1]);
+
         //console.log(songDetailList[q][0]);
         genereSongList.push(songDetailList[q]);
       } 
     }
+  }
     console.log("num: "+testnum);
-      console.log("length: "+genereSongList.length);
-      console.log(genereSongList[0][1]+"QQQ"+genereSongList[0][3]+" QQQQ"+genereSongList[0][2]);
+     // console.log("length: "+genereSongList.length);
       removeall();
     for(var p=0; p<genereSongList.length;p++){
+       //0. genres,1. songtitle,2. songartist,3. songuri
       songListDisplay(genereSongList[p][1],genereSongList[p][3],genereSongList[p][2]);
     } 
 })
 
 }
-/**list add to local */
+/**list add to local based on addbutton+*/
+function clickAdd(){
+
+}
 
 
 
@@ -128,7 +146,7 @@ else{
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
 
-click();
+clickGenere();
 
 
 
