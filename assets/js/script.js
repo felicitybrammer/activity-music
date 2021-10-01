@@ -74,10 +74,7 @@ else{
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
 
-var iframeElement   = document.querySelector('iframe');
-var iframeElementID = iframeElement.id;
-var widget1         = SC.Widget(iframeElement);
-var widget2         = SC.Widget(iframeElementID);
+
 
 
 
