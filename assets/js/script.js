@@ -31,11 +31,8 @@ function songGenreDisplay(genereListToatal){
     var genereitem = document.createElement("button");
     genereitem.innerHTML = genereListToatal[j];
     genresection.appendChild(genereitem);
-   // genereitem.setAttribute("id",j);
-   //onClick="reply_click(this.id)
    genereitem.setAttribute("name",genereitem);
     genereitem.setAttribute("id",genereitem);
-   // genereitem.setAttribute("onClick",reply_click());
     genereitem.setAttribute("class","genereoption");
   }
 }
@@ -51,26 +48,23 @@ function clickGenere(){
   $('#genreList').on('click', '.genereoption', function(e) {
     var generename = e.target.innerHTML;
     var genereSongList=[];
-    var testnum =0;
+  //  var testnum =0;
     //console.log(generename);
     for(var q=0; q<songDetailList.length;q++){
       currentgenere=[];
       currentgenere.push(songDetailList[q][0]);
-     // console.log(currentgenere[0]);
     //  / console.log(currentgenere.length);
       for(var r=0; r<currentgenere.length;r++){
       if(currentgenere[0]!=null&&currentgenere[0][r]==generename){
-        testnum++;
+    //    testnum++;
         //console.log("G: "+currentgenere[r]);
        // console.log("title: "+songDetailList[q][1]);
-
         //console.log(songDetailList[q][0]);
         genereSongList.push(songDetailList[q]);
       } 
     }
   }
-    console.log("num: "+testnum);
-     // console.log("length: "+genereSongList.length);
+    //console.log("num: "+testnum);
       removeall();
     for(var p=0; p<genereSongList.length;p++){
        //0. genres,1. songtitle,2. songartist,3. songuri
@@ -79,9 +73,17 @@ function clickGenere(){
 })
 
 }
-/**list add to local based on addbutton+*/
+/**list add to local based on addbutton+
+ * functionally complete, please let me know what info do you need from here to display music from other API
+*/
 function clickAdd(){
+$('#musicList').on('click','.addbutton',function(e){
+  var songuli = e.target.id;
+  console.log(songuli);
+  //localStorage.clear();
+  localStorage.setItem('default',songuli);
 
+})
 }
 
 
@@ -147,6 +149,7 @@ else{
 // &f3c958b0703b54d22b8335f49728191a
 
 clickGenere();
+clickAdd();
 
 
 
