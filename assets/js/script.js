@@ -10,6 +10,7 @@ function songListDisplay(songtitle,songuri,songartist){
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
+  //create button
   var addbutton = document.createElement("button");
   addbutton.innerHTML="Add +"
   addbutton.setAttribute('id',songuri);
@@ -76,12 +77,28 @@ function clickGenere(){
 /**list add to local based on addbutton+
  * functionally complete, please let me know what info do you need from here to display music from other API
 */
+// for music API developer: 
+//num = range of localStorage.length;
+// var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
 function clickAdd(){
 $('#musicList').on('click','.addbutton',function(e){
   var songuli = e.target.id;
-  console.log(songuli);
-  //localStorage.clear();
-  localStorage.setItem('default',songuli);
+  var localnum = localStorage.length;
+  //console.log(songuli);
+  //console.log(songDetailList.length);
+  //console.log(songDetailList[0][1]);
+  //console.log(songDetailList[0][2]);
+  //localStorage.clear();// for develop purpose
+ for(var n=0; n<songDetailList.length;n++){
+   if(songDetailList[n][3]==songuli){
+     var temp=[];
+     temp.push("default");
+     temp.push(songDetailList[n][1]);//songTitle
+     temp.push(songDetailList[n][2]);//songArtist
+     localStorage.setItem(localnum,temp);
+   }
+ }
+ // localStorage.setItem('default',songuli);
 
 })
 }
@@ -118,6 +135,7 @@ for(var i=0;i<bpmListLength;i++){
     singleDetail.push(songtitle);
     singleDetail.push(songartist);
     singleDetail.push(songuri);
+    //total songlist
     songDetailList.push(singleDetail);
 
  
