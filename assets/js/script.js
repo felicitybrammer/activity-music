@@ -103,9 +103,6 @@ $('#musicList').on('click','.addbutton',function(e){
 })
 }
 
-
-
-
 $(".searchBtn").on("click", function(event) {
 var bpmvalue = $(".search").val(); 
 removeall();
