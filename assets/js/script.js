@@ -7,7 +7,12 @@ function songListDisplay(songtitle,songuri,songartist){
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
-  console.log("songtotle: "+songtitle);
+  //create button
+  var addbutton = document.createElement("button");
+  addbutton.innerHTML="Add +"
+  addbutton.setAttribute('id',songuri);
+  addbutton.setAttribute('class','addbutton');
+ // console.log("songtotle: "+songtitle);
   musicsection.appendChild(musicitem);
   musicsection.appendChild(br);
   musicitem.setAttribute("id",songtitle);
@@ -16,6 +21,36 @@ function songListDisplay(songtitle,songuri,songartist){
   musicitem.setAttribute("href",songuri);
 
 }
+/**list add to local based on addbutton+
+ * functionally complete, please let me know what info do you need from here to display music from other API
+*/
+// for music API developer: 
+//num = range of localStorage.length;
+// var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
+function clickAdd(){
+$('#musicList').on('click','.addbutton',function(e){
+  var songuli = e.target.id;
+  var localnum = localStorage.length;
+  //console.log(songuli);
+  //console.log(songDetailList.length);
+  //console.log(songDetailList[0][1]);
+  //console.log(songDetailList[0][2]);
+  //localStorage.clear();// for develop purpose
+ for(var n=0; n<songDetailList.length;n++){
+   if(songDetailList[n][3]==songuli){
+     var temp=[];
+     temp.push("default");
+     temp.push(songDetailList[n][1]);//songTitle
+     temp.push(songDetailList[n][2]);//songArtist
+     localStorage.setItem(localnum,temp);
+   }
+ }
+ // localStorage.setItem('default',songuli);
+
+})
+}
+
+
 
 
 $(".searchBtn").on("click", function(event) {
@@ -41,6 +76,15 @@ for(var i=0;i<bpmListLength;i++){
     var songtitle = data['tempo'][i]['song_title'];
     var songartist = data['tempo'][i]['artist']['name'];
  // console.log(generaList.length);
+    var singleDetail =[];
+    //0. genres,1. songtitle,2. songartist,3. songuri
+    singleDetail.push(genere);
+    singleDetail.push(songtitle);
+    singleDetail.push(songartist);
+    singleDetail.push(songuri);
+    //total songlist
+    songDetailList.push(singleDetail);
+
  
  //song list display
   songListDisplay(songtitle,songuri,songartist);
