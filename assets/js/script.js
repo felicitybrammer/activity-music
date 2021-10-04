@@ -6,37 +6,43 @@ function songListDisplay(songtitle,songuri,songartist){
   //for css, list class: songlist div id:musicList, each song id: song title;
   //button for each song to add to the localstorage, button id: each songuri, buttonclass: addbutton;
   //console.log("works!: ");
-  var musicsection = document.getElementById("musicList");
-  var musicitem = document.createElement("a");
-  musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
-  var br = document.createElement("br");
+      var musicsection = document.getElementById("musicList");
+      var musicitem = document.createElement("a");
+      musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
+      var br = document.createElement("br");
+      
   //create button
-  var addbutton = document.createElement("button");
-  addbutton.innerHTML="Add +"
-  addbutton.setAttribute('id',songuri);
-  addbutton.setAttribute('class','addbutton');
- // console.log("songtotle: "+songtitle);
-  musicsection.appendChild(musicitem);
-  musicsection.appendChild(addbutton);
-  musicsection.appendChild(br);
-  musicitem.setAttribute("id",songtitle);
-  musicitem.setAttribute("class","songlist");
+      var addbutton = document.createElement("button");
+      addbutton.innerHTML="+ Add to playlist"
+      addbutton.setAttribute('id',songuri);
+      addbutton.setAttribute('class','addbutton');
+ 
+  // console.log("songtotle: "+songtitle);
+      musicsection.appendChild(musicitem);
+      musicsection.appendChild(addbutton);
+      musicsection.appendChild(br);
+      musicitem.setAttribute("id",songtitle);
+      musicitem.setAttribute("class","songlist");
+  
   //for develop purpose, should be deleted 
-  musicitem.setAttribute("href",songuri);
+      musicitem.setAttribute("href",songuri);
 }
+
 /**display all the genre based on BPM and first 250 */
 function songGenreDisplay(genereListToatal){
   //for css, genrelist class: genereoption, genrelist div id: genreList, element for each <button>, Button id : shown as html name
   for(var j =0; j<genereListToatal.length;j++){
-    var genresection = document.getElementById("genreList");
-    var genereitem = document.createElement("button");
-    genereitem.innerHTML = genereListToatal[j];
-    genresection.appendChild(genereitem);
-   genereitem.setAttribute("name",genereitem);
-    genereitem.setAttribute("id",genereitem);
-    genereitem.setAttribute("class","genereoption");
+      var genresection = document.getElementById("genreList");
+      var genereitem = document.createElement("button");
+          genereitem.innerHTML = genereListToatal[j];
+          genresection.appendChild(genereitem);
+          genereitem.setAttribute("name",genereitem);
+          genereitem.setAttribute("id",genereitem);
+          genereitem.setAttribute("class","genereoption");
+
   }
 }
+
 /**remove all display while refresh the search */
 function removeall(){
   var musicsection = document.getElementById("musicList");
@@ -44,6 +50,7 @@ function removeall(){
   var genresection = document.getElementById("genreList");
   genresection.innerHTML='';
 }
+
 /**for genere list to be clickable && change based on genere*/
 function clickGenere(){
   $('#genreList').on('click', '.genereoption', function(e) {
@@ -162,6 +169,7 @@ else{
   console.log("should inner HTML write input number error(cannot prompt)");
 }
 })
+
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
