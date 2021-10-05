@@ -1,11 +1,30 @@
-var genereList =[];
-var songDetailList =[];
+var genereListToatal =[];
+var songDetailList = [];
 
-/**display all the songs from the API */
 function songListDisplay(songtitle,songuri,songartist){
-  //for css, list class: songlist div id:musicList, each song id: song title;
-  //button for each song to add to the localstorage, button id: each songuri, buttonclass: addbutton;
+  //for css, list class: songlist id:musicList
   //console.log("works!: ");
+
+  var musicsection = document.getElementById("musicList");
+  var musicitem = document.createElement("a");
+  musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
+  var br = document.createElement("br");
+  
+  //create button
+  var addbutton = document.createElement("button");
+  addbutton.innerHTML="+ Add to playlist";
+  addbutton.setAttribute('id',songuri);
+  addbutton.setAttribute('class','addbutton');
+ 
+  // console.log("songtotle: "+songtitle);
+  musicsection.appendChild(musicitem);
+  musicsection.appendChild(addbutton);
+  musicsection.appendChild(br);
+  musicitem.setAttribute("id",songtitle);
+  musicitem.setAttribute("class","songlist");
+
+  //for develop purpose, should be deleted 
+
       var musicsection = document.getElementById("musicList");
       var musicitem = document.createElement("a");
       musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
@@ -26,6 +45,7 @@ function songListDisplay(songtitle,songuri,songartist){
   
   //for develop purpose, should be deleted 
       musicitem.setAttribute("href",songuri);
+
 }
 
 /**display all the genre based on BPM and first 250 */
@@ -81,6 +101,7 @@ function clickGenere(){
 })
 
 }
+
 /**list add to local based on addbutton+
  * functionally complete, please let me know what info do you need from here to display music from other API
 */
@@ -110,73 +131,93 @@ $('#musicList').on('click','.addbutton',function(e){
 })
 }
 
-
+function nearest(n, v) {
+  n = n / v;
+  n = Math.round(n) * v;
+  return n;
+};
 
 
 $(".searchBtn").on("click", function(event) {
-var bpmvalue = $(".search").val(); 
-removeall();
-// limit the bpm range from 40 to 220
-if(bpmvalue >40 &&bpmvalue <220){
 
-/**api cors solved with extension, rejected fail to fetch problem */
-//console.log(data)
-fetch('https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm='+bpmvalue)
-.then(response => response.json())
-.then(data => {
-console.log(data);
-/**for loop test out the music list to get genera0-250 or list length, 
- * tempo -> get songid -> same songid from artist -> from artist object get genres */
-var bpmListLength = data['tempo'].length;
-for(var i=0;i<bpmListLength;i++){
-    var genere = data['tempo'][i]['artist']['genres'];
-    var songimg = data['tempo'][i]['album']['img'];
-    var songuri = data['tempo'][i]['song_uri'];
-    var songid = data['tempo'][i]['song_id'];
-    var songtitle = data['tempo'][i]['song_title'];
-    var songartist = data['tempo'][i]['artist']['name'];
- // console.log(generaList.length);
-    var singleDetail =[];
-    //0. genres,1. songtitle,2. songartist,3. songuri
-    singleDetail.push(genere);
-    singleDetail.push(songtitle);
-    singleDetail.push(songartist);
-    singleDetail.push(songuri);
-    //total songlist
-    songDetailList.push(singleDetail);
+  var bpmvalue = $(".search").val(); 
+  //removeall();
+  // limit the bpm range from 40 to 220
+  if (bpmvalue < 40) {
+    bpmvalue = 40;
+    console.log(bpmvalue);
+  } 
+  else if (bpmvalue > 220) {
+    bpmvalue = 220;
+    console.log(bpmvalue);
+  } 
+  else if (bpmvalue % 5 !== 0) {
+      //round to nearest 5 or 10
+        bpmvalue = nearest(bpmvalue, 5);
+        console.log(bpmvalue);
+  } 
 
- 
- //song list display
-  songListDisplay(songtitle,songuri,songartist);
+     
+  
 
-  var diff = $(genere).not(genereList).get();
-  //console.log("diff: "+diff);
-  for(var k =0; k<diff.length;k++){
-    genereList.push(diff[k]);
-  }
-}
-//console.log("totalList:"+genereListToatal);
-// put the list
-songGenreDisplay(genereList);
-//console.log("total: "+songDetailList.length);
-//console.log("details_test1: "+songDetailList[0]);
-//console.log("details_test2: "+songDetailList[0][1]);
-})
+      /**api cors solved with extension, rejected fail to fetch problem */
+      //console.log(data)
+      fetch('https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm='+bpmvalue)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        /**for loop test out the music list to get genera0-250 or list length, 
+         * tempo -> get songid -> same songid from artist -> from artist object get genres */
+        var bpmListLength = data['tempo'].length;
+        for(var i=0;i<bpmListLength;i++){
+            var genereList = data['tempo'][i]['artist']['genres'];
+            var songimg = data['tempo'][i]['album']['img'];
+            var songuri = data['tempo'][i]['song_uri'];
+            var songid = data['tempo'][i]['song_id'];
+            var songtitle = data['tempo'][i]['song_title'];
+            var songartist = data['tempo'][i]['artist']['name'];
+           //console.log(genereList);
+            var singleDetail =[];
+            //0. genres,1. songtitle,2. songartist,3. songuri
+            singleDetail.push(genere);
+            singleDetail.push(songtitle);
+            singleDetail.push(songartist);
+            singleDetail.push(songuri);
+            //total songlist
+            songDetailList.push(singleDetail);
+            console.log(songDetailList);
 
-.catch(error => "error");
-}
-else{
-  console.log("should inner HTML write input number error(cannot prompt)");
-}
+        
+          //song list display
+          songListDisplay(songtitle,songuri,songartist);
+
+          var diff = $(genere).not(genereList).get();
+          //console.log("diff: "+diff);
+          for(var k =0; k<diff.length;k++){
+            genereList.push(diff[k]);
+          }
+        }
+
+
+        //console.log("totalList:"+genereListToatal);
+        // put the list
+        songGenreDisplay(genereList);
+
+      })
+      .catch(error => "error");
+    
+  
+  
+  
 })
 
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
 
+
 clickGenere();
 clickAdd();
-
 
 
 
