@@ -1,26 +1,86 @@
 var genereListToatal =[];
+var songDetailList = [];
 
 function songListDisplay(songtitle,songuri,songartist){
   //for css, list class: songlist id:musicList
-  console.log("works!: ");
+  //console.log("works!: ");
   var musicsection = document.getElementById("musicList");
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
+  
   //create button
   var addbutton = document.createElement("button");
-  addbutton.innerHTML="Add +"
+  addbutton.innerHTML="+ Add to playlist";
   addbutton.setAttribute('id',songuri);
   addbutton.setAttribute('class','addbutton');
- // console.log("songtotle: "+songtitle);
+ 
+  // console.log("songtotle: "+songtitle);
   musicsection.appendChild(musicitem);
+  musicsection.appendChild(addbutton);
   musicsection.appendChild(br);
   musicitem.setAttribute("id",songtitle);
   musicitem.setAttribute("class","songlist");
+
   //for develop purpose, should be deleted 
   musicitem.setAttribute("href",songuri);
 
 }
+
+/**display all the genre based on BPM and first 250 */
+function songGenreDisplay(genereListToatal){
+  //for css, genrelist class: genereoption, genrelist div id: genreList, element for each <button>, Button id : shown as html name
+  for(var j =0; j<genereListToatal.length;j++){
+      var genresection = document.getElementById("genreList");
+      var genereitem = document.createElement("button");
+          genereitem.innerHTML = genereListToatal[j];
+          genresection.appendChild(genereitem);
+          genereitem.setAttribute("name",genereitem);
+          genereitem.setAttribute("id",genereitem);
+          genereitem.setAttribute("class","genereoption");
+
+  }
+}
+
+/**remove all display while refresh the search */
+function removeall(){
+  var musicsection = document.getElementById("musicList");
+  musicsection.innerHTML='';
+  var genresection = document.getElementById("genreList");
+  genresection.innerHTML='';
+}
+
+/**for genere list to be clickable && change based on genere*/
+function clickGenere(){
+  $('#genreList').on('click', '.genereoption', function(e) {
+    var generename = e.target.innerHTML;
+    var genereSongList=[];
+  //  var testnum =0;
+    //console.log(generename);
+    for(var q=0; q<songDetailList.length;q++){
+      currentgenere=[];
+      currentgenere.push(songDetailList[q][0]);
+    //  / console.log(currentgenere.length);
+      for(var r=0; r<currentgenere.length;r++){
+      if(currentgenere[0]!=null&&currentgenere[0][r]==generename){
+    //    testnum++;
+        //console.log("G: "+currentgenere[r]);
+       // console.log("title: "+songDetailList[q][1]);
+        //console.log(songDetailList[q][0]);
+        genereSongList.push(songDetailList[q]);
+      } 
+    }
+  }
+    //console.log("num: "+testnum);
+      removeall();
+    for(var p=0; p<genereSongList.length;p++){
+       //0. genres,1. songtitle,2. songartist,3. songuri
+      songListDisplay(genereSongList[p][1],genereSongList[p][3],genereSongList[p][2]);
+    } 
+})
+
+}
+
 /**list add to local based on addbutton+
  * functionally complete, please let me know what info do you need from here to display music from other API
 */
@@ -60,7 +120,7 @@ function nearest(n, v) {
 $(".searchBtn").on("click", function(event) {
 
   var bpmvalue = $(".search").val(); 
-
+  //removeall();
   // limit the bpm range from 40 to 220
   if (bpmvalue < 40) {
     bpmvalue = 40;
@@ -74,8 +134,9 @@ $(".searchBtn").on("click", function(event) {
       //round to nearest 5 or 10
         bpmvalue = nearest(bpmvalue, 5);
         console.log(bpmvalue);
-    } 
-       
+  } 
+
+     
   
 
       /**api cors solved with extension, rejected fail to fetch problem */
@@ -103,27 +164,23 @@ $(".searchBtn").on("click", function(event) {
             singleDetail.push(songuri);
             //total songlist
             songDetailList.push(singleDetail);
+            console.log(songDetailList);
 
         
           //song list display
           songListDisplay(songtitle,songuri,songartist);
 
-          var diff = $(genereList).not(genereListToatal).get();
+          var diff = $(genere).not(genereList).get();
           //console.log("diff: "+diff);
           for(var k =0; k<diff.length;k++){
-            genereListToatal.push(diff[k]);
+            genereList.push(diff[k]);
           }
         }
-        console.log("totalList:"+genereListToatal);
+
+
+        //console.log("totalList:"+genereListToatal);
         // put the list
-        for(var j =0; j<genereListToatal.length;j++){
-          var genresection = document.getElementById("genreList");
-          var genereitem = document.createElement("button");
-          genereitem.innerHTML = genereListToatal[j];
-          genresection.appendChild(genereitem);
-          genereitem.setAttribute("id",genereitem);
-          genereitem.setAttribute("class","genereoption");
-        }
+        songGenreDisplay(genereList);
 
       })
       .catch(error => "error");
@@ -137,7 +194,8 @@ $(".searchBtn").on("click", function(event) {
 // &f3c958b0703b54d22b8335f49728191a
 
 
-
+clickGenere();
+clickAdd();
 
 
 
