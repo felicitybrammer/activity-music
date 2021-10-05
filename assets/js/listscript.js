@@ -1,0 +1,62 @@
+
+
+document.getElementById('addFolder').onclick = function addFolder(){
+// console.log("you clicked me, add folder");
+var folderName = $('.folderName').val();//get folder name
+document.querySelector('.folderName').value = '';
+if(folderName.length==0){
+    var errormessage = "please enter a valid name";
+    var messagebox = document.getElementById("messagebox");
+    messagebox.innerHTML = errormessage;
+    messagebox.setAttribute("style","color: red; font-size: medium;");
+}
+else{
+var messagebox = document.getElementById("messagebox");
+messagebox.innerHTML='';
+var folderArea = document.getElementById("folder");
+
+//c img
+var folderimg = document.createElement("img")
+folderimg.setAttribute("src","./img/musicFolder.png");
+folderimg.setAttribute("style","margin-top:15px;display: block; margin-left: auto; margin-right: auto;");
+folderimg.setAttribute("alt","music folder icon");
+folderimg.setAttribute("width",120);
+folderimg.setAttribute("height",120);
+folderArea.appendChild(folderimg);
+//c name
+var folderTitle = document.createElement("h2")
+folderTitle.innerHTML=folderName;
+folderTitle.setAttribute("id",folderName);
+folderTitle.setAttribute("class","displayfolder");
+folderTitle.setAttribute("style","margin-top:5px;text-align:center");
+folderArea.appendChild(folderTitle);
+}
+}
+
+//var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
+function displaylocal(){
+    var songArea = document.getElementById("songList"); 
+for(var i=0; i<localStorage.length;i++){
+    var songitem = localStorage.getItem(i)
+    var temp = songitem.split(',');
+    var songname = temp[1];
+    var songartist = temp[2];
+
+    var div = document.createElement("div");
+    div.setAttribute("id",i);
+    div.setAttribute("draggable",true);
+    songArea.appendChild(div);
+
+    var song = document.createElement("p");
+    song.setAttribute("style","line-height: 200%;");
+    song.innerHTML = "Song: "+songname+'&nbsp &nbsp &nbsp &nbsp &nbsp'+" Aritist: "+songartist;
+    div.appendChild(song);
+
+}
+
+}
+
+
+
+/** */
+displaylocal();

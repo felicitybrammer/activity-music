@@ -10,12 +10,21 @@ function songListDisplay(songtitle,songuri,songartist){
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
   var br = document.createElement("br");
-  //create button
+  //create button -- add to default folder
   var addbutton = document.createElement("button");
-  addbutton.innerHTML="Add +"
+  addbutton.innerHTML="Add +";
   addbutton.setAttribute('id',songuri);
   addbutton.setAttribute('class','addbutton');
  // console.log("songtotle: "+songtitle);
+
+
+ // create button -- try listen button -- with the other api
+  var listenbutton = document.createElement("button");
+  listenbutton.innerHTML="Listen";
+  listenbutton.setAttribute('id',songuri+"listen");
+  listenbutton.setAttribute('class','listenbutton');
+  musicsection.appendChild(listenbutton);
+
   musicsection.appendChild(musicitem);
   musicsection.appendChild(addbutton);
   musicsection.appendChild(br);
@@ -32,7 +41,7 @@ function songGenreDisplay(genereListToatal){
     var genereitem = document.createElement("button");
     genereitem.innerHTML = genereListToatal[j];
     genresection.appendChild(genereitem);
-   genereitem.setAttribute("name",genereitem);
+    genereitem.setAttribute("name",genereitem);
     genereitem.setAttribute("id",genereitem);
     genereitem.setAttribute("class","genereoption");
   }
@@ -83,28 +92,43 @@ function clickGenere(){
 function clickAdd(){
 $('#musicList').on('click','.addbutton',function(e){
   var songuli = e.target.id;
+ // var addbutton = document.getElementById(songuli);
+ //add disable
   var localnum = localStorage.length;
-  //console.log(songuli);
-  //console.log(songDetailList.length);
-  //console.log(songDetailList[0][1]);
-  //console.log(songDetailList[0][2]);
+
   //localStorage.clear();// for develop purpose
  for(var n=0; n<songDetailList.length;n++){
    if(songDetailList[n][3]==songuli){
      var temp=[];
-     temp.push("default");
+     temp.push("default");//folder
      temp.push(songDetailList[n][1]);//songTitle
      temp.push(songDetailList[n][2]);//songArtist
      localStorage.setItem(localnum,temp);
+     var button = document.getElementById(songuli);
+     button. disabled = true;
    }
  }
  // localStorage.setItem('default',songuli);
 
 })
 }
+function clickListen(){
+  $('#musicList').on('click','.listenbutton',function(e){
+    var listebbutton = e.target.id;
+// https://api.spotify.com
+//client ID: 9f83c65c6c7a40f99a42cd7559b83fb2
+//client secret: f2538f56b2714286a4d2c6cb238c95e7
+console.log("yes,clicked");
+fetch('https://api.spotify.com')
+  .then(response => response.json())
+  .then(data => console.log(data));
 
+
+})
+}
 $(".searchBtn").on("click", function(event) {
 var bpmvalue = $(".search").val(); 
+document.querySelector(".search").value ='';
 removeall();
 // limit the bpm range from 40 to 220
 if(bpmvalue >40 &&bpmvalue <220){
@@ -155,9 +179,7 @@ songGenreDisplay(genereList);
 
 .catch(error => "error");
 }
-else{
-  console.log("should inner HTML write input number error(cannot prompt)");
-}
+
 })
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
@@ -165,6 +187,7 @@ else{
 
 clickGenere();
 clickAdd();
+clickListen();
 
 
 
