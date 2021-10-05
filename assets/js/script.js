@@ -31,8 +31,9 @@ function songListDisplay(songtitle,songuri,songartist){
   musicitem.setAttribute("id",songtitle);
   musicitem.setAttribute("class","songlist");
   //for develop purpose, should be deleted 
-  musicitem.setAttribute("href",songuri);
+      musicitem.setAttribute("href",songuri);
 }
+
 /**display all the genre based on BPM and first 250 */
 function songGenreDisplay(genereListToatal){
   //for css, genrelist class: genereoption, genrelist div id: genreList, element for each <button>, Button id : shown as html name
@@ -46,6 +47,7 @@ function songGenreDisplay(genereListToatal){
     genereitem.setAttribute("class","genereoption");
   }
 }
+
 /**remove all display while refresh the search */
 function removeall(){
   var musicsection = document.getElementById("musicList");
@@ -53,6 +55,7 @@ function removeall(){
   var genresection = document.getElementById("genreList");
   genresection.innerHTML='';
 }
+
 /**for genere list to be clickable && change based on genere*/
 function clickGenere(){
   $('#genreList').on('click', '.genereoption', function(e) {
@@ -181,6 +184,7 @@ songGenreDisplay(genereList);
 }
 
 })
+
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a

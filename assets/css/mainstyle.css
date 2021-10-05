@@ -1,10 +1,9 @@
-
 :root {
-    --primary: #E4f9FF;
-    --secondary: #12CAD6;
-    --tertiary: #0FABBC;
-    --bright: #FA1616;
-    --dark: #38302e;
+    --primary: #384f5b;
+    --secondary: #f69c20;
+    --tertiary: #7e939f;
+    --font: #E4F9FF;
+    --background: #e5e5e5;
     --border-radius: .3rem;
   }
   * {
@@ -14,7 +13,7 @@
   }
 
   body {
-    background-color: var(--primary);
+    background-color: var(--background);
     margin: 0;
     padding: 0;
     font-family: "IBM Plex Sans", sans-serif;
@@ -30,14 +29,18 @@
       width: 75px;
       height: 75px;
   }
-  
- .hero-container img {
-     width: 100%;
-     display: flex;
-     flex-wrap: wrap;
-     height: 800px;
-     -webkit-transform: scaleX(-1);
-     transform: scaleX(-1);   
+
+ .hero-container {
+    background-image: url("../../img/Fitness_Roads_Run_502738_3840x2400.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-position: 100%; 
+    width: 100vw;
+    height: 100vh;
  }
 
  header {
@@ -46,8 +49,17 @@
     display: flex;
     justify-content: left;
     flex-wrap: wrap;
+    border-bottom: 12px solid var(--secondary);
     top: 0;
-    border-bottom: 2px solid var(--tertiary);
+    top: 0;
+    background-color: var(--primary);
+    width: 100vw;
+    /*background-image: url("../../img/Fitness_Roads_Run_502738_3840x2400.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 80%;
+    z-index: 9999;*/
  }
 
  header h1 {
@@ -57,82 +69,122 @@
     font-size: 40px;
     font-weight: 700;
     margin: 0;
-    color: var(--dark);
+    color: var(--font);
     line-height: 1.25;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    width: 330px;
  }
-
- main {
-    margin: 20px auto;
-    width: 94%;
-  }
   
   p {
     font-size: 1.2rem;
   }
   
+.cta {
+    width: 35%;
+    text-align: right;
+    margin: 3.5%;
+    color: var(--font);
+    font-size: 18px;
+    line-height: 1.2;
+    background-color: rgba(56, 48, 46, 0.3);
+    border-radius: 15px;
+    height: max-content;
+    width: 600px;
+    padding-right: 20px;
+}
+
+.cta h2 {
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-size: 55px;
+    color: var(--font);
+}
+
+.cta p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .parameter-form {
     display: flex;
     flex-wrap: wrap;
-    border: 3px solid var(--dark);
-    background-color: rgba(252, 56, 89, 0.8);
-    color: var(--dark);
-    padding: 20px;
+    /*border: 3px solid var(--dark);*/
+    background-color: var(--background);
+    color: var(--primary);
+    padding: 20px 0 30px 0;
     width: 40%;
     margin: 3.5%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
     border-radius: 15px;
-
 }
 
-.parameter-form h2 {
+.parameter-form h3 {
     font-size: 24px;
     margin: 0;
+    padding-left: 20px;
+    font-weight: bolder;
+}
+
+
+
+.parameter-form label {
+    display: block;
+    margin: 5px 0 20px 0;
+    padding-left: 20px;
+    font-size: 17px;
+}
+
+.parameter-form input {
+    margin-left: 20px;
 }
 
 .parameter-form p {
-    display: block;
-    margin: 5px 0 15px 0;
+    font-size: 17px;
+    padding-bottom: 25px;
 }
 
-.parameter-form form {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.form-input {
-    border: 1px solid var(--dark);
+.search {
+    border: 1px solid var(--primary);
     display: block;
     padding: 7px 15px;
     font-size: 16px;
-    color: var(--dark);
-    width: 100%;
+    color: var(--primary);
+    width: max-content;
     margin-bottom: 15px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.75);
 }
 
-.form-input:focus {
+.search:focus {
     background-color: rgba(255, 255, 255, 1);
     outline: none;
 }
 
-.searchBtn {
-    color: var(--dark);
-    background-color: var(--tertiary);
-    border: 1px solid var(--dark);
+.searchBtn,
+.viewBtn {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--primary);
     padding: 10px 20px;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 10px;
+    border: none;
     width: 100px;
+    margin: 10px 0 0 0;
     transition: all 0.3s ease;
 }
 
-.searchBtn:hover {
+.searchBtn:hover,
+.viewBtn:hover {
     background-color: var(--secondary);
+    color: var(--primary);
     cursor: pointer;
+    border: none;
+}
+
+.parameter-form a {
+    background-color: var(--tertiary);
 }
 
 div{
@@ -143,14 +195,137 @@ div{
     margin-top: 20px;
 }
 .genereoption{
-background-color: var(--genre-background-color);
-color: var(--genre-text-color);
-border-radius: 12px;
-}
+    background-color: var(--secondary);
+    color: var(--primary);
+    border-radius: 5px;
+    width: max-content;
+    padding: 0 5px 0 5px;
+    transition: all 0.3s ease;
+    border: none;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    }
 
 
 .genereoption:hover{
-    background-color:var(--genre-hover-background);
-    color: var(--genre-hover-text);
-    border-radius: 12px;
+    background-color:var(--primary);
+    color: var(--font);
+    cursor: pointer;
+    border: none;
 }
+
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.song-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: var(--background);
+    width: 100vw;
+    /*background-image: url("../../img/Fitness_Roads_Run_502738_3840x2400.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 100%;
+    z-index: 9999;*/
+    margin: 0 0 0 0;
+    padding-top: 37px;
+}
+
+.song-list a {
+    text-decoration-color: transparent;
+    background-color: var(--primary);
+    color: var(--font);
+    width: max-content;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+    margin: 0 0 5px 50px;
+}
+
+.song-list .addbutton {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 5px;
+    width: max-content;
+    padding: 0 10px 0 10px;
+    transition: all 0.3s ease;
+    margin-left: 50px;
+    border: none;
+}
+
+.song-list .addbutton:hover {
+    background-color:var(--primary);
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+.song-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 50px;
+    padding-top: 37px;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--primary);
+    background-color: var(--background);
+    border-bottom: 12px solid var(--primary);
+}
+
+/* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width: 980px) {
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative;
+        width: 100vw;
+    }
+    
+    header h1 {
+        width: 100vw;
+        text-align: center;
+    }
+ 
+    .cta, .parameter-form {
+        width: 100vw;
+    }
+ 
+    .cta {
+        text-align: center;
+    }
+ 
+    .song-list {
+        width: 100vw;
+    }
+ 
+ }
+ 
+ /* MEDIA QUERY FOR TABLETS AND SMALLER */
+ @media screen and (max-width: 768px) {
+    .parameter-form button{
+        width: 50%;
+    }
+
+    .viewBtn {
+       width: 50%;
+   }
+ }
+ 
+  /* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+  @media screen and (max-width: 575px) {
+     .parameter-form button{
+         width: 50%;
+     }
+
+     .viewBtn {
+        width: 50%;
+    }
+
+
+  }
