@@ -4,6 +4,7 @@ var songDetailList = [];
 function songListDisplay(songtitle,songuri,songartist){
   //for css, list class: songlist id:musicList
   //console.log("works!: ");
+
   var musicsection = document.getElementById("musicList");
   var musicitem = document.createElement("a");
   musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
@@ -23,7 +24,27 @@ function songListDisplay(songtitle,songuri,songartist){
   musicitem.setAttribute("class","songlist");
 
   //for develop purpose, should be deleted 
-  musicitem.setAttribute("href",songuri);
+
+      var musicsection = document.getElementById("musicList");
+      var musicitem = document.createElement("a");
+      musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
+      var br = document.createElement("br");
+      
+  //create button
+      var addbutton = document.createElement("button");
+      addbutton.innerHTML="+ Add to playlist"
+      addbutton.setAttribute('id',songuri);
+      addbutton.setAttribute('class','addbutton');
+ 
+  // console.log("songtotle: "+songtitle);
+      musicsection.appendChild(musicitem);
+      musicsection.appendChild(addbutton);
+      musicsection.appendChild(br);
+      musicitem.setAttribute("id",songtitle);
+      musicitem.setAttribute("class","songlist");
+  
+  //for develop purpose, should be deleted 
+      musicitem.setAttribute("href",songuri);
 
 }
 
@@ -189,6 +210,7 @@ $(".searchBtn").on("click", function(event) {
   
   
 })
+
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a

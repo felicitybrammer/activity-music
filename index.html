@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Train to the beat</title>
     <link rel="icon" type="image/png" href="./img/icon.jpg"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/mainstyle.css">
 </head>
@@ -30,27 +31,45 @@
                 </p>
             </div>
         <div class="parameter-form">
-            <h3>Select your preferences:</h3>
-            <p>Choose from the listed options to generate a training playlist!</p>
+            
             <div>
+
 
                 <label for="BPM">Enter your desired beats per minute:
                     * if you enter less than 40, your choice will be entered as 40
                     * if you enter more than 220, your choice will be entered as 220
                     Note that all values entered will be rounded to the nearest 5 bpm
                 </label>
+
+                <h3>Select your BPM preference:</h3>    
+                <label for="BPM">Enter your desired beats per minute, they must range from 40 to 220</label>
+
                 <input class="search" type="number" placeholder="Beats per minute" maxlength="3">
-                <div id="genreList">
-                    
+                <div id="genreList" class="genre-list">
+                    <button class="searchBtn" type="submit" data-inline="true">Search</button>    
                 </div>    
-                <button class="searchBtn" type="submit" data-inline="true" >Search</button>
-            </div>
+                
+                <div>
+                    <p>
+                        Once you select your BPM and genre, click the following link to view your song selection.
+                    </p>
+                    <a href="#musicList" class="viewBtn">View songs</a>
+                </div>
+                </div>
+        </div>        
         </section>
         
         <!-- Placeholder for list of songs generated to drag or play from -->
+
         <div id="musicList"></div> 
         
    
+
+        <h3 class="song-header">Create your own playlist by adding songs!</h3>
+        <div id="musicList" class="song-list">
+        </div>
+
+
     </main>   
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
