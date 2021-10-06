@@ -75,12 +75,19 @@ for(var i=0; i<localStorage.length;i++){
         })
         .then (function(data) {
         console.log(data);
-        var weatherContainerEl = document.getElementById('#weather-container');
-        //weatherContainerEl.innerHTML = '';
-        var currentWeather = document.createElement('div');
-        //currentWeather.setAttribute('value', response.data[current]);
-        //weatherContainerEl.appendChild(currentWeather);
-        });
+        var weatherContainerEl = document.getElementById('weather-container');
+        weatherContainerEl.innerHTML = '';
+        var currentTitle = document.createElement('h2');
+        var currentWeather = document.createElement('p');
+        currentTitle.innerHTML = 'Current Weather Conditions in ' + city + ':';
+        currentWeather.innerHTML = 'Temp in Celsius:'+data.current.temp_c+' C'+'Feels like:'+data.current.feelslike_c+' C'+'Precipitation:'+data.current.precip_mm+' mm';
+       
+        // currentTitle.setAttribute(
+        // currentWeather.setAttribute('innerHTML', data.current);
+        weatherContainerEl.appendChild(currentTitle);
+        weatherContainerEl.appendChild(currentWeather);
+        })
+        .catch(error => "error");
     };    
 
 
