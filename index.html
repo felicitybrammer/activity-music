@@ -14,26 +14,45 @@
 
     <!-- Header + Navigation bar -->
     <header>
+        <!--nevigate bar -->
+        <div id="navigate" class="navigate">
+        <ul>
+            <li><a class="active" href="./index.html">Home</a></li>
+            <li><a href="./list.html">Song List</a></li>
+            <li><a href="./about.html">About</a></li>
+          </ul>
+        </div>
+
         <div class="logo">
             <img src ="img/iconfinder-icon.svg" alt="BPM logo">
         </div>
-        <h1>Train to the beat!</h1>
+        <h1>Train To The Beat!</h1>
     </header>
 
     <!-- Initial form for choosing parameters -->
     <main>
         <section class="hero-container">
             <div class="cta">
-                <h2>Lorem ipsum dolor.</h2>
+                <h2>Training Is More <em>Productive</em> With Music</h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, quaerat! Optio aliquid nulla odio? Laudantium amet, fugiat, earum saepe repudiandae corrupti voluptate incidunt similique adipisci blanditiis voluptas facilis! Quis, pariatur.
+                    Did you know that you are more likely to reach your training goals if you train to music with a bpm that matches your desired pace?
+                    Let us find the best tracks for you!
                 </p>
             </div>
         <div class="parameter-form">
             
             <div>
+
+
+                <label for="BPM">Enter your desired beats per minute:
+                    * if you enter less than 40, your choice will be entered as 40
+                    * if you enter more than 220, your choice will be entered as 220
+                    Note that all values entered will be rounded to the nearest 5 bpm
+                </label>
+
                 <h3>Select your BPM preference:</h3>    
                 <label for="BPM">Enter your desired beats per minute, they must range from 40 to 220</label>
+
                 <input class="search" type="number" placeholder="Beats per minute" maxlength="3">
                 <div id="genreList" class="genre-list">
                     <button class="searchBtn" type="submit" data-inline="true">Search</button>    
@@ -50,6 +69,11 @@
         </section>
         
         <!-- Placeholder for list of songs generated to drag or play from -->
+
+        <div id="musicList"></div> 
+        
+   
+
         <h3 class="song-header">Create your own playlist by adding songs!</h3>
         <div id="musicList" class="song-list">
         </div>
@@ -60,4 +84,7 @@
         <script type="text/javascript" src="./assets/js/script.js"></script>
         
 </body>
+<footer>
+    &copy; Music_Project_Group &#10084
+</footer>
 </html>
