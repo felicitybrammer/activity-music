@@ -12,7 +12,7 @@ musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
 var br = document.createElement("br");
 //create button -- add to default folder
 var addbutton = document.createElement("button");
-addbutton.innerHTML="Add +";
+addbutton.innerHTML="+ Add to playlist";
 addbutton.setAttribute('id',songuri);
 addbutton.setAttribute('class','addbutton');
 // console.log("songtotle: "+songtitle);

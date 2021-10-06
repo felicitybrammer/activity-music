@@ -15,28 +15,39 @@
   }
   li {
     overflow: hidden;
-    background-color: #38302e;
+    background-color: var(--tertiary);
     display: inline-block;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     }
+
+    li:hover {
+        background-color: var(--secondary);
+        color: var(--primary);
+    }
+
     .navigate{
     margin-right: 20%;
     float: left;
     }
+
     li a {
     display: block;
-    color: white;
+    color: var(--font);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: all 0.3s ease;
     }
-    
-    li a:hover:not(.active) {
-    background-color: #E4f9FF;
-    color:#38302e ;
+
+    li a:hover {
+        background-color: var(--secondary);
+        color: var(--primary);
     }
     
     .active {
-    background-color: rgba(252, 56, 89, 0.8);
+    background-color: var(--secondary);
+    color: var(--primary);
     }
 
   body {
@@ -103,7 +114,7 @@
     line-height: 1.25;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    width: 330px;
+    width: 350px;
  }
   
   p {
@@ -295,6 +306,27 @@ div{
     cursor: pointer;
     border: none;
 }
+
+.song-list .listenbutton {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 5px;
+    width: max-content;
+    padding: 0 10px 0 10px;
+    transition: all 0.3s ease;
+    margin-left: 50px;
+    border: none;
+}
+
+.song-list .listenbutton:hover {
+    background-color:var(--primary);
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+
 
 .song-header {
     display: flex;
