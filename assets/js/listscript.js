@@ -55,45 +55,35 @@ for(var i=0; i<localStorage.length;i++){
 }
 
 }
-function checkWeather() {
 
-    var locationContainerEl = document.querySelector('#location-container');
-    locationContainerEl.innerHTML = '';
-    var weatherTextEl = document.createElement('p');
-    weatherTextEl.innerHTML = 'Enter your city to check the weather';
-    var locationSearch = document.createElement('input');
-    locationSearch.setAttribute('type', 'text');
-    var locationBtn = document.createElement('button');
-    locationBtn.innerHTML = 'Get Weather';
-    locationBtn.setAttribute('id', location);
-    locationBtn.addClass = '.searchBtn';
-    locationContainerEl.appendChild(weatherTextEl)
-    locationContainerEl.appendChild(locationSearch);
-    locationContainerEl.appendChild(locationBtn);
+
+
+
     
-    $('#locationBtn').on('click', function(event) {
+   
+    document.getElementById('locationBtn').onclick = function checkWeather() {
         console.log('button clicked');
-        var location = document.querySelector('#location').value;
+
+        var city = $('.locationText').val();
+        console.log(city);
+        //document.querySelector('.locationText').value = '';
 
         fetch(
-            'http://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q=' 
-            + location + 
-            '&aqi=no')
+            'http://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q='+city+'&aqi=no')
         .then(function(response) {
         return response.json();
         })
         .then (function(data) {
-        console.log(data[current]);
-        var weatherContainerEl = document.querySelector('#weather-container');
-        weatherContainerEl.innerHTML = '';
+        console.log(data);
+        var weatherContainerEl = document.getElementById('#weather-container');
+        //weatherContainerEl.innerHTML = '';
         var currentWeather = document.createElement('div');
-        currentWeather.setAttribute('value', response.data[current]);
-        weatherContainerEl.appendChild(currentWeather);
+        //currentWeather.setAttribute('value', response.data[current]);
+        //weatherContainerEl.appendChild(currentWeather);
         });
-    });    
-};
+    };    
+
 
 /** */
 displaylocal();
 
-checkWeather();
