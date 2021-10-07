@@ -1,5 +1,6 @@
 var folderList=[];
 var dragitem;
+/**click function for add folder*/
 document.getElementById('addFolder').onclick = function addFolder(){
 // console.log("you clicked me, add folder");
 var folderName = $('.folderName').val();//get folder name
@@ -67,7 +68,10 @@ localrefresh();
 function localrefresh(){
   var songArea = document.getElementById("songList"); 
   songArea.innerHTML = '';
+  var folderArea = document.getElementById("folder");
+  folderArea.innerHTML='';
   displaylocal();
+  displayfolders();
 }
 /**display the selection -> drop down list, and clickable submit button
  * input, class name: inputclass
@@ -104,12 +108,10 @@ function displayselection(songname,songartist){
       input.setAttribute("type","submit");
       input.setAttribute("value","submit");
       input.setAttribute("style","display:inline;");   
-      
       }
     }
     div.appendChild(input);
   }
- 
   label.appendChild(select);
   //div.appendChild(form);
   div.appendChild(label);
@@ -121,7 +123,9 @@ function displayselection(songname,songartist){
  * display into another html file
  */
 function checkfolder(folder_id){
+  var id = folder_id;
   console.log("hehehe");
+  console.log(id);
 
 }
 //var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
@@ -173,6 +177,7 @@ $(document).ready (function(){
 
 /**display folders */
 function displayfolders(){
+  
     var folderlisttemp = localStorage.getItem("folderList");
     if(folderlisttemp!=null){
     var temp = folderlisttemp.split(',');
@@ -201,6 +206,7 @@ function displayfolders(){
     folderTitle.setAttribute("class","displayfolder");
     folderTitle.setAttribute("style","margin-top:5px;text-align:center");
     folderArea.appendChild(folderTitle);
+    
 }
     }
 }
