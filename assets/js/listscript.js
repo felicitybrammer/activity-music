@@ -132,6 +132,10 @@ localStorage.setItem("pageName",id);
 /**display localstorage of songs and artist, in the default folder */
 function displaylocal(){
   var songArea = document.getElementById("songList"); 
+  var p = document.createElement("p");
+  p.innerHTML = "Unorganized Song List";
+  p.setAttribute("id","displaySong");
+  songArea.appendChild(p);
 for(var i=0; i<localStorage.length;i++){
   var key = localStorage.getItem("folderList");
   var songitem = localStorage.getItem(i);
