@@ -321,34 +321,34 @@ displayfolders();
 
 
 /** display for the weather API */ 
-document.getElementById('locationBtn').onclick = function checkWeather() {
-    console.log('button clicked');
+  document.getElementById('locationBtn').onclick = function checkWeather() {
+      console.log('button clicked');
 
-    var city = $('.locationText').val();
-    console.log(city);
-    //document.querySelector('.locationText').value = '';
+      var city = $('.locationText').val();
+      console.log(city);
+      //document.querySelector('.locationText').value = '';
 
-    fetch(
-        'http://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q='+city+'&aqi=no')
-    .then(function(response) {
-    return response.json();
-    })
-    .then (function(data) {
-    console.log(data);
-    var weatherContainerEl = document.getElementById('weather-container');
-    weatherContainerEl.innerHTML = '';
-    var currentTitle = document.createElement('h2');
-    var currentWeather = document.createElement('p');
-    currentTitle.innerHTML = 'Current Weather Conditions in ' + city + ':';
-    currentWeather.innerHTML = 'Temp in Celsius:'+data.current.temp_c+' C'+'Feels like:'+data.current.feelslike_c+' C'+'Precipitation:'+data.current.precip_mm+' mm';
-    
-    // currentTitle.setAttribute(
-    // currentWeather.setAttribute('innerHTML', data.current);
-    weatherContainerEl.appendChild(currentTitle);
-    weatherContainerEl.appendChild(currentWeather);
-    })
-    .catch(error => "error");
-};    
+      fetch(
+          'https://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q='+city+'&aqi=no')
+      .then(function(response) {
+      return response.json();
+      })
+      .then (function(data) {
+      console.log(data);
+      var weatherContainerEl = document.getElementById('weather-container');
+      weatherContainerEl.innerHTML = '';
+      var currentTitle = document.createElement('h2');
+      var currentWeather = document.createElement('p');
+      currentTitle.innerHTML = 'Current Weather Conditions in ' + city + ':';
+      currentWeather.innerHTML = 'Temp in Celsius:'+data.current.temp_c+'C'+' Feels like:'+data.current.feelslike_c+'C'+' Precipitation:'+data.current.precip_mm+' mm';
+      
+      // currentTitle.setAttribute(
+      // currentWeather.setAttribute('innerHTML', data.current);
+      weatherContainerEl.appendChild(currentTitle);
+      weatherContainerEl.appendChild(currentWeather);
+      })
+      .catch(error => "error");
+  };    
 
 
 

@@ -6,6 +6,26 @@
     --background: #e5e5e5;
     --border-radius: .3rem;
   }
+  
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+  
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 0px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 0px;
+    border: 1px solid var(--primary);
+  }
 
   * {
     box-sizing: border-box;
@@ -15,28 +35,43 @@
   }
   li {
     overflow: hidden;
-    background-color: #38302e;
+    background-color: var(--tertiary);
     display: inline-block;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     }
+
+    li:hover {
+        background-color: var(--secondary);
+        color: var(--primary);
+    }
+
     .navigate{
-    margin-right: 20%;
-    float: left;
+    margin-right: 0;
     }
+
     li a {
     display: block;
-    color: white;
+    color: var(--font);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    transition: all 0.3s ease;
+    }
+
+    li a:hover {
+        background-color: var(--secondary);
+        color: var(--primary);
     }
     
     li a:hover:not(.active) {
-    background-color: #E4f9FF;
-    color:#38302e ;
+    background-color: var(--secondary);
+    color: var(--primary);
     }
-    
+
     .active {
-    background-color: rgba(252, 56, 89, 0.8);
+        background-color: var(--secondary);
+        color: var(--primary);
     }
 
   body {
@@ -45,7 +80,6 @@
     padding: 0;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-    color: var(--dark);
     line-height: 1.5;
     font-size: 16px;
   }
@@ -54,7 +88,7 @@
   .logo {
       display: flex;
       justify-content: center;
-      margin-right: 40px;
+      margin-right: 10px;
       width: 75px;
       height: 75px;
   }
@@ -77,13 +111,14 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 35px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
     border-bottom: 12px solid var(--secondary);
     top: 0;
     top: 0;
     background-color: var(--primary);
     width: 100vw;
+    padding-right: 60px;
     /*background-image: url("../../img/Fitness_Roads_Run_502738_3840x2400.jpg");
     background-size: cover;
     background-position: center;
@@ -98,12 +133,12 @@
     align-content: center;
     font-size: 40px;
     font-weight: 700;
-    margin: 0;
+    margin-right: auto;
     color: var(--font);
     line-height: 1.25;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    width: 330px;
+    width: 350px;
  }
   
   p {
@@ -113,7 +148,7 @@
   
 .cta {
     width: 35%;
-    text-align: right;
+    text-align: left;
     margin: 3.5%;
     color: var(--font);
     font-size: 18px;
@@ -121,13 +156,12 @@
     background-color: rgba(56, 48, 46, 0.3);
     border-radius: 15px;
     height: max-content;
-    width: 600px;
     padding-right: 20px;
 }
 
 .cta h2 {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    font-size: 55px;
+    font-size: 40px;
     color: var(--font);
 }
 
@@ -139,18 +173,16 @@
 .parameter-form {
     display: flex;
     flex-wrap: wrap;
-    right: 10px;
-    /*border: 3px solid var(--dark);*/
     background-color: var(--background);
     color: var(--primary);
-    padding: 20px 0 30px 0;
+    padding: 0 20px 30px 0;
     width: 40%;
     margin: 3.5%;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
     border-radius: 15px;
 }
 
-.parameter-form h3 {
+.parameter-form h3{
     font-size: 24px;
     margin: 0;
     padding-left: 20px;
@@ -193,7 +225,9 @@
 }
 
 .searchBtn,
-.viewBtn {
+.viewBtn,
+.addFolder,
+.inputclass {
     text-decoration-color: transparent;
     color: var(--font);
     background-color: var(--primary);
@@ -208,11 +242,18 @@
 }
 
 .searchBtn:hover,
-.viewBtn:hover {
+.viewBtn:hover,
+.addFolder:hover,
+.inputclass:hover {
     background-color: var(--secondary);
     color: var(--primary);
     cursor: pointer;
     border: none;
+}
+
+.searchBtn,
+.addFolder {
+    margin-left: 20px;
 }
 
 .parameter-form a {
@@ -226,7 +267,8 @@ div{
     margin-left: 20px;
     margin-top: 20px;
 }
-.genereoption{
+.genereoption,
+.displayfolder {
     background-color: var(--secondary);
     color: var(--primary);
     border-radius: 5px;
@@ -239,7 +281,8 @@ div{
     }
 
 
-.genereoption:hover{
+.genereoption:hover,
+.displayfolder:hover {
     background-color:var(--primary);
     color: var(--font);
     cursor: pointer;
@@ -254,7 +297,7 @@ div{
 
 .song-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     background-color: var(--background);
     width: 100vw;
@@ -266,6 +309,8 @@ div{
     z-index: 9999;*/
     margin: 0 0 0 0;
     padding-top: 37px;
+    overflow-y: scroll;
+    max-height: 600px;
 }
 
 .song-list a {
@@ -297,10 +342,32 @@ div{
     border: none;
 }
 
+.song-list .listenbutton {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 5px;
+    width: max-content;
+    padding: 0 10px 0 10px;
+    transition: all 0.3s ease;
+    margin-left: 50px;
+    border: none;
+}
+
+.song-list .listenbutton:hover {
+    background-color:var(--primary);
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+
+
 .song-header {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    width: 100vw;
     padding-left: 50px;
     padding-top: 37px;
     font-size: 32px;
@@ -309,6 +376,100 @@ div{
     background-color: var(--background);
     border-bottom: 12px solid var(--primary);
 }
+
+.songflex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.returnBtn {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--primary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    height: max-content;
+    margin: 10px 0 0 50px;
+    transition: all 0.3s ease;
+}
+
+.returnBtn:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+    cursor: pointer;
+    border: none;
+}
+
+.playlist-div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    flex-direction: column;
+    background-color: var(--background);
+    color: var(--primary);
+    width: min-content;
+    padding: 20px;
+    margin: 3.5%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+    overflow-y: auto;
+    max-height: 650px;
+}
+
+.folderTitle {
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    color: var(--primary);
+}
+
+.folderSongList {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--primary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    margin: 10px 0 0 0;
+    transition: all 0.3s ease;
+}
+
+.folderSongList:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+    cursor: pointer;
+    border: none;
+}
+
+
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: auto;
+    color: var(--font);
+    line-height: 1.25;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px 35px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: 12px solid var(--secondary);
+    top: 0;
+    background-color: var(--primary);
+    width: 100vw;
+    padding-right: 60px;
+    bottom: 10px;
+    width: 100%;
+    }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
@@ -320,7 +481,6 @@ div{
     }
     
     header h1 {
-        width: 100vw;
         text-align: center;
     }
  

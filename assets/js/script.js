@@ -12,18 +12,18 @@ musicitem.innerHTML = "Title:  "+songtitle+ "\<br>Artist:  "+songartist;
 var br = document.createElement("br");
 //create button -- add to default folder
 var addbutton = document.createElement("button");
-addbutton.innerHTML="Add +";
+addbutton.innerHTML="+ Add to playlist";
 addbutton.setAttribute('id',songuri);
 addbutton.setAttribute('class','addbutton');
 // console.log("songtotle: "+songtitle);
 
 
-// create button -- try listen button -- with the other api
-var listenbutton = document.createElement("button");
-listenbutton.innerHTML="Listen";
-listenbutton.setAttribute('id',songuri+"listen");
-listenbutton.setAttribute('class','listenbutton');
-musicsection.appendChild(listenbutton);
+// // create button -- try listen button -- with the other api
+// var listenbutton = document.createElement("button");
+// listenbutton.innerHTML="Listen";
+// listenbutton.setAttribute('id',songuri+"listen");
+// listenbutton.setAttribute('class','listenbutton');
+// musicsection.appendChild(listenbutton);
 
 musicsection.appendChild(musicitem);
 musicsection.appendChild(addbutton);
@@ -204,6 +204,8 @@ songGenreDisplay(genereList);
 }
 
 })
+
+
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a
