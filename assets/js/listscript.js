@@ -66,7 +66,7 @@ localrefresh();
 /**refesh local display to let the new folder showing to the dropdown list  */
 function localrefresh(){
   var songArea = document.getElementById("songList"); 
-  songArea.innerHTML = '';
+  songArea.innerHTML = 'HELLOOO';
   displaylocal();
 }
 /**display the selection -> drop down list, and clickable submit button
@@ -80,7 +80,7 @@ function displayselection(songname,songartist){
   //var form = document.createElement("form");
   //form.setAttribute("id",songname+songartist+"form");
   var label = document.createElement("label");
-  label.innerHTML = "select folder";
+  label.innerHTML = "Select folder";
   var select = document.createElement("select");
   select.setAttribute("class","selectclass");
   select.setAttribute("id",songname+songartist+"select");

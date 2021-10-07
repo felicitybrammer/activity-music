@@ -6,6 +6,26 @@
     --background: #e5e5e5;
     --border-radius: .3rem;
   }
+  
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--primary);
+  }
+  
+  *::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--primary);
+    border-radius: 0px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+    border-radius: 0px;
+    border: 1px solid var(--primary);
+  }
 
   * {
     box-sizing: border-box;
@@ -44,9 +64,14 @@
         color: var(--primary);
     }
     
-    .active {
+    li a:hover:not(.active) {
     background-color: var(--secondary);
     color: var(--primary);
+    }
+
+    .active {
+        background-color: var(--secondary);
+        color: var(--primary);
     }
 
   body {
@@ -55,7 +80,6 @@
     padding: 0;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
-    color: var(--dark);
     line-height: 1.5;
     font-size: 16px;
   }
@@ -202,7 +226,8 @@
 
 .searchBtn,
 .viewBtn,
-.addFolder {
+.addFolder,
+.inputclass {
     text-decoration-color: transparent;
     color: var(--font);
     background-color: var(--primary);
@@ -217,11 +242,18 @@
 }
 
 .searchBtn:hover,
-.viewBtn:hover {
+.viewBtn:hover,
+.addFolder:hover,
+.inputclass:hover {
     background-color: var(--secondary);
     color: var(--primary);
     cursor: pointer;
     border: none;
+}
+
+.searchBtn,
+.addFolder {
+    margin-left: 20px;
 }
 
 .parameter-form a {
@@ -235,7 +267,8 @@ div{
     margin-left: 20px;
     margin-top: 20px;
 }
-.genereoption{
+.genereoption,
+.displayfolder {
     background-color: var(--secondary);
     color: var(--primary);
     border-radius: 5px;
@@ -248,7 +281,8 @@ div{
     }
 
 
-.genereoption:hover{
+.genereoption:hover,
+.displayfolder:hover {
     background-color:var(--primary);
     color: var(--font);
     cursor: pointer;
@@ -263,7 +297,7 @@ div{
 
 .song-list {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: column;
     background-color: var(--background);
     width: 100vw;
@@ -275,6 +309,8 @@ div{
     z-index: 9999;*/
     margin: 0 0 0 0;
     padding-top: 37px;
+    overflow-y: scroll;
+    max-height: 600px;
 }
 
 .song-list a {

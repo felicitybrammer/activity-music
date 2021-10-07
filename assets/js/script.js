@@ -18,12 +18,12 @@ addbutton.setAttribute('class','addbutton');
 // console.log("songtotle: "+songtitle);
 
 
-// create button -- try listen button -- with the other api
-var listenbutton = document.createElement("button");
-listenbutton.innerHTML="Listen";
-listenbutton.setAttribute('id',songuri+"listen");
-listenbutton.setAttribute('class','listenbutton');
-musicsection.appendChild(listenbutton);
+// // create button -- try listen button -- with the other api
+// var listenbutton = document.createElement("button");
+// listenbutton.innerHTML="Listen";
+// listenbutton.setAttribute('id',songuri+"listen");
+// listenbutton.setAttribute('class','listenbutton');
+// musicsection.appendChild(listenbutton);
 
 musicsection.appendChild(musicitem);
 musicsection.appendChild(addbutton);
