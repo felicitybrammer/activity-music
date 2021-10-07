@@ -39,7 +39,7 @@ folderArea.appendChild(folderTitle);
 }
 }
 /** let the song added to the new folder
- * SHOULD: - delete from localStorage/ add new temp[0]
+ * change to different folder name of local storage temp[0]
 */
 function clickfunction(click_id){
   var id = click_id;
@@ -100,16 +100,17 @@ function displayselection(songname,songartist){
         select.appendChild(option)
         var input = document.createElement("input");
         input.setAttribute("id",songname+","+songartist+","+"input");
-      input.setAttribute("onclick","clickfunction(this.id)")
+        console.log(input.id);
+      input.setAttribute("onclick","clickfunction(this.id)");
       input.setAttribute("type","submit");
       input.setAttribute("value","submit");
-      input.setAttribute("style","display:inline;");
-        
+      input.setAttribute("style","display:inline;");   
+      
       }
     }
-    
+    div.appendChild(input);
   }
-  div.appendChild(input);
+ 
   label.appendChild(select);
   //div.appendChild(form);
   div.appendChild(label);
