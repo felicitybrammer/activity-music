@@ -83,21 +83,20 @@ function handleDrop(e) {
     }
     return false;
 }
-
 function handleDragEnd(e) {
-    [].forEach.call(cols, function (col) {
+    [].forEach.call(items, function (col) {
         col.classList.remove('over');
     });
 }
 
-var cols = document.querySelectorAll('#unSonglist .folderSongList');
-[].forEach.call(cols, function (col) {
-    col.addEventListener('dragstart', handleDragStart, false);
-    col.addEventListener('dragenter', handleDragEnter, false)
-    col.addEventListener('dragover', handleDragOver, false);
-    col.addEventListener('dragleave', handleDragLeave, false);
-    col.addEventListener('drop', handleDrop, false);
-    col.addEventListener('dragend', handleDragEnd, false);
+var items = document.querySelectorAll('#unSonglist .folderSongList');
+[].forEach.call(items, function (litem) {
+    litem.addEventListener('dragstart', handleDragStart, false);
+    litem.addEventListener('dragenter', handleDragEnter, false)
+    litem.addEventListener('dragover', handleDragOver, false);
+    litem.addEventListener('dragleave', handleDragLeave, false);
+    litem.addEventListener('drop', handleDrop, false);
+    litem.addEventListener('dragend', handleDragEnd, false);
 });
 
 
