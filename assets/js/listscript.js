@@ -278,7 +278,7 @@ displayfolders();
       //document.querySelector('.locationText').value = '';
 
       fetch(
-          'http://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q='+city+'&aqi=no')
+          'https://api.weatherapi.com/v1/current.json?key=44ade762643049cc9b433612210610&q='+city+'&aqi=no')
       .then(function(response) {
       return response.json();
       })
