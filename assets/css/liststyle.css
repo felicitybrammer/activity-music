@@ -7,46 +7,31 @@ root {
 --border-radius: .3rem;
 }
 
-li {
-overflow: hidden;
-background-color: #38302e;
-display: inline-block;
-}
 .navigate{
-margin-right: 20%;
-float: left;
-}
-li a {
-display: block;
-color: white;
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+margin-right: 0;
 }
 
-li a:hover:not(.active) {
-background-color: #E4f9FF;
-color:#38302e ;
+.hero-container {
+    display: flex;
+    justify-content: space-between;
 }
 
-.active {
-background-color: rgba(252, 56, 89, 0.8);
+.createFolder,
+.weather-div,
+.songList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    background-color: var(--background);
+    color: var(--primary);
+    padding: 20px;
+    width: auto;
+    margin: 3.5%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
 }
 
-.createFolder{
-float: right;
-right: 5px;
-border: 2px solid #7e939f;
-border-radius: 12px;
-padding:20px;
-}
-.addFolder{
-margin-right: 20px;
-margin-bottom: 20px;
-margin-top: 20px;
-background-color: rgba(252, 56, 89, 0.8);
-color: white;
-}
 .folder{
 flex: left;
 position: static;
@@ -56,23 +41,28 @@ display:block;
 margin-right: 10px;
 margin-bottom: 1px;
 }
-.songList{
-position: absolute;
-right: 5px;
-top:200px;
-border: 2px solid #7e939f;
-border-radius: 15px;
-padding: 25px;
-width: 400px;
+
+.folderName,
+.locationText {
+    border: 1px solid var(--primary);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--primary);
+    width: max-content;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
 }
-#displaySong{
-color: #7e939f;
-font-size: larger;
+
+.folderName:focus,
+.locationText:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
 }
 
 footer{
 text-align: center;
 bottom: 10px;
-position: absolute;
 width: 100%;
 }

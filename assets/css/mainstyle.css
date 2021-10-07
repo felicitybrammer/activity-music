@@ -27,8 +27,7 @@
     }
 
     .navigate{
-    margin-right: 20%;
-    float: left;
+    margin-right: 0;
     }
 
     li a {
@@ -65,7 +64,7 @@
   .logo {
       display: flex;
       justify-content: center;
-      margin-right: 40px;
+      margin-right: 10px;
       width: 75px;
       height: 75px;
   }
@@ -88,13 +87,14 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 20px 35px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
     border-bottom: 12px solid var(--secondary);
     top: 0;
     top: 0;
     background-color: var(--primary);
     width: 100vw;
+    padding-right: 60px;
     /*background-image: url("../../img/Fitness_Roads_Run_502738_3840x2400.jpg");
     background-size: cover;
     background-position: center;
@@ -109,7 +109,7 @@
     align-content: center;
     font-size: 40px;
     font-weight: 700;
-    margin: 0;
+    margin-right: auto;
     color: var(--font);
     line-height: 1.25;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
@@ -124,7 +124,7 @@
   
 .cta {
     width: 35%;
-    text-align: right;
+    text-align: left;
     margin: 3.5%;
     color: var(--font);
     font-size: 18px;
@@ -132,13 +132,12 @@
     background-color: rgba(56, 48, 46, 0.3);
     border-radius: 15px;
     height: max-content;
-    width: 600px;
     padding-right: 20px;
 }
 
 .cta h2 {
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    font-size: 55px;
+    font-size: 40px;
     color: var(--font);
 }
 
@@ -150,10 +149,9 @@
 .parameter-form {
     display: flex;
     flex-wrap: wrap;
-    /*border: 3px solid var(--dark);*/
     background-color: var(--background);
     color: var(--primary);
-    padding: 20px 0 30px 0;
+    padding: 0 20px 30px 0;
     width: 40%;
     margin: 3.5%;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
@@ -203,7 +201,8 @@
 }
 
 .searchBtn,
-.viewBtn {
+.viewBtn,
+.addFolder {
     text-decoration-color: transparent;
     color: var(--font);
     background-color: var(--primary);
@@ -339,6 +338,10 @@ div{
     color: var(--primary);
     background-color: var(--background);
     border-bottom: 12px solid var(--primary);
+}
+
+footer {
+    float: left;
 }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
