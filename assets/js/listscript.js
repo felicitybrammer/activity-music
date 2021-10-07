@@ -35,7 +35,7 @@ for(var i =0; i<temp.length;i++){
 /** let the song added to the new folder
  * change to different folder name of local storage temp[0]
 */
-function clickfunction(click_id){
+function addtoFolder(click_id){
 var id = click_id;
 var tempid = id.split(',');
 var folderid = tempid[0]+tempid[1];
@@ -64,6 +64,50 @@ for(var i=0; i<localStorage.length;i++){
 }
 localrefresh();
 }
+
+
+/**delete from the list and re-key the list after that
+ */
+ function deletefromList(click_id){
+  var id = click_id;
+  console.log(id);
+  var tempid = id.split(',');
+var folderid = tempid[0]+tempid[1];
+var tempname = tempid[0];
+var tempartist = tempid[1];
+for(var i=0; i<localStorage.length;i++){
+  var llength = localStorage.length;
+  var key = localStorage.getItem("folderList");
+  var songitem = localStorage.getItem(i);
+  if(songitem!=key&& songitem!=null){
+    var temp = songitem.split(',');
+  var songname = temp[1];
+  var songartist = temp[2];
+  if(songname == tempname && songartist==tempartist){
+    localStorage.removeItem(i);
+    var templist =[];
+    var num =i+1;
+    for(var j=num; j<llength;j++){
+      var s =[];
+      var st = localStorage.getItem(j);
+      var songtemp = st.split(',');
+      var songfolder = songtemp[0];
+      var songnametemp = songtemp[1];
+      var songartisttemp = songtemp[2];
+      localStorage.removeItem(j);
+      s.push(songfolder);
+      s.push(songnametemp);
+      s.push(songartisttemp);
+      localStorage.setItem(j-1,s);
+      }
+    }
+  }
+}
+  localrefresh();
+  }
+
+
+
 /**refesh local display to let the new folder showing to the dropdown list  */
 function localrefresh(){
 var songArea = document.getElementById("songList"); 
@@ -93,6 +137,7 @@ if(folderlisttemp!=null){
 var temp = folderlisttemp.split(',');
 
 for(var i =0; i<temp.length;i++){
+ 
     var folderName = temp[i];
     if(folderName!=undefined){
       var option = document.createElement("option");
@@ -103,14 +148,16 @@ for(var i =0; i<temp.length;i++){
       var input = document.createElement("input");
     input.setAttribute("id",songname+","+songartist+","+"input");
       //console.log(input.id);
-    input.setAttribute("onclick","clickfunction(this.id)");
+    input.setAttribute("onclick","addtoFolder(this.id)");
     input.setAttribute("class","inputclass");
     input.setAttribute("type","submit");
     input.setAttribute("value","submit");
     input.setAttribute("style","display:inline;");   
+
     }
   }
   div.appendChild(input);
+ // div.appendChild(del);
 }
 label.appendChild(select);
 //div.appendChild(form);
@@ -151,6 +198,7 @@ for(var i=0; i<localStorage.length;i++){
 
   if(songname!=undefined){
   var div = document.createElement("div");
+  
   div.setAttribute("id",i);
   div.setAttribute("class",song)
   //div.setAttribute("draggable",true);//
@@ -164,20 +212,21 @@ for(var i=0; i<localStorage.length;i++){
   //var form = document.createElement("form");
   //div.appendChild(form);
   //label
+     //create delete button
+     var del = document.createElement("button");
+     del.innerHTML='delete';
+     del.setAttribute("id",songname+","+songartist+","+"del");
+     del.setAttribute("onclick","deletefromList(this.id)");
+   del.setAttribute("class","delclass");
+     del.setAttribute("value","delete");
+   div.appendChild(del);
+
+
   displayselection(songname,songartist);
   }
 }
 }
 }
-/* draggable
-$(document).ready (function(){
-$('#songList div').draggable({
-  helper:'clone',
-  revert: "valid",
-})
-})
-*/
-
 
 /**display folders */
 function displayfolders(){
@@ -191,16 +240,6 @@ function displayfolders(){
       var folderName = temp[i];
       if(folderName!=undefined){
   
-/*droppable
-  document.getElementById(folderName).droppable({
-    drop:function(event, ui){
-      $('#folder').append(ui.draggable);
-      //song 1- test1 -> 
-      console.log(event.target.id);
-    },
-
-  })
-  */
       //d name
       /**the folder list class name: displayfolder */
       var folderTitlea = document.createElement("a");
