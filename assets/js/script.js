@@ -204,6 +204,8 @@ songGenreDisplay(genereList);
 }
 
 })
+
+
 //&tempo='+bmpvalue+'bpm'
 //https://api.getsongbpm.com/search/?api_key=YOUR_API_KEY_HERE&type=artist&lookup=green+day"
 // &f3c958b0703b54d22b8335f49728191a

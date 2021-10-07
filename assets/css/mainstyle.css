@@ -367,6 +367,7 @@ div{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+    width: 100vw;
     padding-left: 50px;
     padding-top: 37px;
     font-size: 32px;
@@ -376,9 +377,54 @@ div{
     border-bottom: 12px solid var(--primary);
 }
 
-footer {
-    float: left;
+.songflex {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
 }
+
+.returnBtn {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--primary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    height: max-content;
+    margin: 10px 0 0 50px;
+    transition: all 0.3s ease;
+}
+
+.returnBtn:hover {
+    background-color: var(--secondary);
+    color: var(--primary);
+    cursor: pointer;
+    border: none;
+}
+
+footer{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-right: auto;
+    color: var(--font);
+    line-height: 1.25;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px 35px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: 12px solid var(--secondary);
+    top: 0;
+    background-color: var(--primary);
+    width: 100vw;
+    padding-right: 60px;
+    bottom: 10px;
+    width: 100%;
+    }
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
@@ -390,7 +436,6 @@ footer {
     }
     
     header h1 {
-        width: 100vw;
         text-align: center;
     }
  

@@ -79,8 +79,8 @@ margin-right: 0;
     font-size: 16px;
     color: var(--primary);
     width: max-content;
-    margin-bottom: 15px;
-    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-top: 15px;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.75);
 }
@@ -91,7 +91,31 @@ margin-right: 0;
 }
 
 .inputclass {
+    width: max-content;
     margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.delclass {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--tertiary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    margin-bottom: auto;
+    transition: all 0.3s ease;
+}
+
+.delclass:hover {
+    background-color: #963528 ;
+    color: var(--font);
+    cursor: pointer;
+    border: none;
 }
 
 .folder{
@@ -120,10 +144,4 @@ margin-bottom: 1px;
 .locationText:focus {
     background-color: rgba(255, 255, 255, 1);
     outline: none;
-}
-
-footer{
-text-align: center;
-bottom: 10px;
-width: 100%;
 }
