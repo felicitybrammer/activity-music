@@ -6,7 +6,7 @@ document.getElementById('addFolder').onclick = function addFolder(){
 var folderName = $('.folderName').val();//get folder name
 document.querySelector('.folderName').value = '';
 if(folderName.length==0){
-  var errormessage = "please enter a valid name";
+  var errormessage = "Please enter a valid name.";
   var messagebox = document.getElementById("messagebox");
   messagebox.innerHTML = errormessage;
   messagebox.setAttribute("style","color: red; font-size: medium;");
@@ -128,7 +128,7 @@ var div = document.createElement("div");
 //var form = document.createElement("form");
 //form.setAttribute("id",songname+songartist+"form");
 var label = document.createElement("label");
-label.innerHTML = "select folder";
+label.innerHTML = "";
 var select = document.createElement("select");
 select.setAttribute("class","selectclass");
 select.setAttribute("id",songname+songartist+"select");
@@ -151,8 +151,8 @@ for(var i =0; i<temp.length;i++){
     input.setAttribute("onclick","addtoFolder(this.id)");
     input.setAttribute("class","inputclass");
     input.setAttribute("type","submit");
-    input.setAttribute("value","submit");
-    input.setAttribute("style","display:inline;");   
+    input.setAttribute("value","Add to folder");
+    input.setAttribute("style","display:block;");   
 
     }
   }
@@ -180,7 +180,7 @@ localStorage.setItem("pageName",id);
 function displaylocal(){
   var songArea = document.getElementById("songList"); 
   var p = document.createElement("p");
-  p.innerHTML = "Unorganized Song List";
+  p.innerHTML = "";
   p.setAttribute("id","displaySong");
   songArea.appendChild(p);
 for(var i=0; i<localStorage.length;i++){
@@ -214,7 +214,7 @@ for(var i=0; i<localStorage.length;i++){
   //label
      //create delete button
      var del = document.createElement("button");
-     del.innerHTML='delete';
+     del.innerHTML='Remove Song';
      del.setAttribute("id",songname+","+songartist+","+"del");
      del.setAttribute("onclick","deletefromList(this.id)");
    del.setAttribute("class","delclass");

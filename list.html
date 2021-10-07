@@ -7,46 +7,58 @@
 <title>Song Organize</title>
 <link rel="icon" type="image/png" href="./img/icon.jpg"/>
 <link rel="stylesheet" href="./assets/css/reset.css">
+<link rel="stylesheet" href="./assets/css/mainstyle.css">
 <link rel="stylesheet" href="./assets/css/liststyle.css">
 </head>
 <body>
-<div id="navigate" class="navigate">
-<ul>
-<li><a href="./index.html">Home</a></li>
-<li><a class="active" href="./list.html">Song List</a></li>
-<li><a href="./about.html">About</a></li>
-</ul>
-</div>
+<!-- Header + Navigation bar -->
+<header>
+    <!--navigate bar -->
+    <div class="logo">
+        <img src ="img/iconfinder-icon.svg" alt="BPM logo">
+    </div>
+    <h1>Train To The Beat!</h1>
 
-<div id="createFolder" class="createFolder">
-<h2 style="font-size: large; color: #7e939f;"> Create Folder</h2>
-<br/>
-<input class="folderName" type="text" placeholder="Folder Name..." maxlength="50">
-<br/>
-<button id="addFolder" class="addFolder"> Add Folder </button>
-<br/>
-<span id="messagebox"></span>
-</div>
+    <div id="navigate" class="navigate">
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a class="active" href="./list.html">Song List</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </div>
+</header>
 
+<main class="hero-container">
+    <div id="location-container" class="weather-div">
+        <h2>Check The Weather</h2>
+        <br/>
+        <input class="locationText" type="text" placeholder="Enter city..." maxlength="15">
+        <br/>
+        <button id="locationBtn" class="searchBtn"> Get Weather </button>
+        <br/>
+        <div id="weather-container" class="weather-div"></div>
+       
+    </div>
+    <div id="createFolder" class="createFolder">
+        <h2> Create Playlist</h2>
+        <p>Start by creating your playlist.</p>
+            <br/>
+            <input class="folderName" type="text" placeholder="Playlist Name..." maxlength="50">
+            <br/>
+        <button id="addFolder" class="addFolder"> Add Playlist </button>
+            <br/>
+            <span id="messagebox"></span>
+            <div >
+                <ul class="folder" id="folder"></ul>
+            </div>    
+        </div>
 
-<div >
-<ul class="folder" id="folder"></ul>
-</div>
-<div class="songList" id="songList">
-<!--<p id="displaySong">Unorganized Song List</p>!-->
+    <div class="songList" id="songList">
+        <h2 id="displaySong">Unorganized Song List</h2>
+        <!--<p id="displaySong">Unorganized Song List</p>!-->
+    </div>
 
-</div>
-
-<div id="location-container">
-    <h2 style="font-size: large; color: #7e939f;">Check The Weather</h2>
-    <br/>
-    <input class="locationText" type="text" placeholder="Enter city..." maxlength="15">
-    <br/>
-    <button id="locationBtn" class="searchBtn"> Get Weather </button>
-    <br/>
-
-</div>
-<div id="weather-container"></div>
+</main>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
