@@ -174,7 +174,7 @@ var div = document.createElement("div");
 //var form = document.createElement("form");
 //form.setAttribute("id",songname+songartist+"form");
 var label = document.createElement("label");
-label.innerHTML = "select folder";
+label.innerHTML = "";
 var select = document.createElement("select");
 select.setAttribute("class","selectclass");
 select.setAttribute("id",songname+songartist+"select");
@@ -197,7 +197,7 @@ for(var i =0; i<temp.length;i++){
   input.setAttribute("onclick","addtoFolder(this.id)");
   input.setAttribute("class","inputclass");
   input.setAttribute("type","submit");
-  input.setAttribute("value","submit");
+  input.setAttribute("value","Add to playlist");
   input.setAttribute("style","display:inline;");   
 
   }
@@ -261,7 +261,7 @@ div.appendChild(song);
 //label
     //create delete button for the song
     var del = document.createElement("button");
-    del.innerHTML='delete';
+    del.innerHTML='Remove song';
     del.setAttribute("id",songname+","+songartist+","+"del");
     del.setAttribute("onclick","deletefromList(this.id)");
   del.setAttribute("class","delclass");
