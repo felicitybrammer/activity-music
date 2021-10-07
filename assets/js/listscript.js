@@ -45,10 +45,30 @@ function clickfunction(click_id){
   var id = click_id;
   var tempid = id.split(',');
   var folderid = tempid[0]+tempid[1];
+  var tempname = tempid[0];
+  var tempartist = tempid[1];
   var select = document.getElementById(folderid+"select");
   var resultfolder = select.options[select.selectedIndex].text;
   console.log(tempid[0]+"artist:"+tempid[1]);
   console.log("folder: "+resultfolder);
+  for(var i=0; i<localStorage.length;i++){
+    var key = localStorage.getItem("folderList");
+    var songitem = localStorage.getItem(i);
+    if(songitem!=key&& songitem!=null){
+      var temp = songitem.split(',');
+    var songname = temp[1];
+    var songartist = temp[2];
+    if(songname == tempname && songartist==tempartist){
+      localStorage.removeItem(i);
+      var templist =[];
+      templist.push(resultfolder);
+      templist.push(songname);
+      templist.push(songartist);
+      localStorage.setItem(i,templist);
+    }
+    }
+}
+localrefresh();
 }
 /**refesh local display to let the new folder showing to the dropdown list  */
 function localrefresh(){
@@ -104,8 +124,10 @@ for(var i=0; i<localStorage.length;i++){
     var songitem = localStorage.getItem(i);
    // console.log("key: "+key);
     //console.log("item: "+songitem);
+    
     if(songitem!=key&& songitem!=null){
-    var temp = songitem.split(',');
+      var temp = songitem.split(',');
+      if(temp[0]=="default"){
     var songname = temp[1];
     var songartist = temp[2];
     }
@@ -127,6 +149,7 @@ for(var i=0; i<localStorage.length;i++){
     //label
     displayselection(songname,songartist);
     }
+  }
 }
 }
 /* draggable
