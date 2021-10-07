@@ -6,7 +6,7 @@ document.getElementById('addFolder').onclick = function addFolder(){
 var folderName = $('.folderName').val();//get folder name
 document.querySelector('.folderName').value = '';
 if(folderName.length==0){
-var errormessage = "please enter a valid name";
+var errormessage = "Please enter a valid name.";
 var messagebox = document.getElementById("messagebox");
 messagebox.innerHTML = errormessage;
 messagebox.setAttribute("style","color: red; font-size: medium;");
@@ -174,7 +174,7 @@ var div = document.createElement("div");
 //var form = document.createElement("form");
 //form.setAttribute("id",songname+songartist+"form");
 var label = document.createElement("label");
-label.innerHTML = "select folder";
+label.innerHTML = "";
 var select = document.createElement("select");
 select.setAttribute("class","selectclass");
 select.setAttribute("id",songname+songartist+"select");
@@ -197,7 +197,7 @@ for(var i =0; i<temp.length;i++){
   input.setAttribute("onclick","addtoFolder(this.id)");
   input.setAttribute("class","inputclass");
   input.setAttribute("type","submit");
-  input.setAttribute("value","submit");
+  input.setAttribute("value","Add to playlist");
   input.setAttribute("style","display:inline;");   
 
   }
@@ -225,8 +225,9 @@ localStorage.setItem("pageName",id);
 /**display localstorage of songs and artist, in the default folder */
 function displaylocal(){
 var songArea = document.getElementById("songList"); 
+var h2 = document.createElement("h2");
+h2.innerHTML = "Unorganized Song List";
 var p = document.createElement("p");
-p.innerHTML = "Unorganized Song List";
 p.setAttribute("id","displaySong");
 songArea.appendChild(p);
 for(var i=0; i<localStorage.length;i++){
@@ -260,7 +261,7 @@ div.appendChild(song);
 //label
     //create delete button for the song
     var del = document.createElement("button");
-    del.innerHTML='delete';
+    del.innerHTML='Remove song';
     del.setAttribute("id",songname+","+songartist+","+"del");
     del.setAttribute("onclick","deletefromList(this.id)");
   del.setAttribute("class","delclass");
@@ -303,7 +304,7 @@ folderArea.appendChild(folderTitlea);
 
 //create delete button for the folders
 var delfolder = document.createElement("button");
-delfolder.innerHTML='delete';
+delfolder.innerHTML='Delete playlist';
 delfolder.setAttribute("id",folderName+","+"del");
 delfolder.setAttribute("onclick","deletefolder(this.id)");
 delfolder.setAttribute("class","defolderlclass");
