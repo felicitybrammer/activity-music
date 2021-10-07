@@ -70,6 +70,7 @@ margin-right: 0;
 
 .songList p {
     display: block;
+}
 
 .selectclass {
     border: 1px solid var(--primary);
