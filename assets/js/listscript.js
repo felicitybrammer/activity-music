@@ -124,8 +124,8 @@ function displayselection(songname,songartist){
  */
 function checkfolder(folder_id){
   var id = folder_id;
-  console.log("hehehe");
   console.log(id);
+  localStorage.setItem("pageName",id);
 
 }
 //var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
@@ -199,13 +199,19 @@ function displayfolders(){
     */
         //d name
         /**the folder list class name: displayfolder */
-    var folderTitle = document.createElement("li")
+        var folderTitlea = document.createElement("a");
+        folderTitlea.setAttribute("id",folderName);
+        folderTitlea.setAttribute("onclick","checkfolder(this.id)");
+        folderTitlea.setAttribute("href","./songdetail.html")
+    var folderTitle = document.createElement("li");
     folderTitle.innerHTML=folderName;
-    folderTitle.setAttribute("id",folderName);
-    folderTitle.setAttribute("onclick","checkfolder(this.id)");
+    //folderTitle.setAttribute("id",folderName);
+    //folderTitle.setAttribute("onclick","checkfolder(this.id)");
     folderTitle.setAttribute("class","displayfolder");
     folderTitle.setAttribute("style","margin-top:5px;text-align:center");
-    folderArea.appendChild(folderTitle);
+    folderTitlea.appendChild(folderTitle);
+    folderArea.appendChild(folderTitlea)
+    
     
 }
     }
