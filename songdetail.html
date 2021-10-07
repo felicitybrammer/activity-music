@@ -7,9 +7,29 @@
     <title>Song Detail List</title>
     <link rel="icon" type="image/png" href="./img/icon.jpg"/>
     <link rel="stylesheet" href="./assets/css/reset.css">
+   
 
 </head>
 <body>
+  
+<h1 class="folderTitle" id="folderTitle"></h1>
+<div>
+    <ul id="unSonglist" class="unSonglist">
+      
+    </ul>
+</div>
+
+
+
     
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./assets/js/detailscript.js"></script>
 </body>
+<footer>
+    <div class="bottom-trash" id="trash"ondrop="drop(event)" ondragover="allowDrop(event)">
+        <span class="oi oi-trash mx-auto mb-4"> </span> Drop Here to Remove.
+      </div>
+    &copy; Team - Grogu &#10084
+</footer>
 </html>
