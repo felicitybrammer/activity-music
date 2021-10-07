@@ -27,6 +27,7 @@ folderArea.appendChild(folderimg);
 //c name
 var folderTitle = document.createElement("h2")
 folderTitle.innerHTML=folderName;*/
+
 folderList.push(folderName);
 localStorage.setItem("folderList",folderList);
 localrefresh();
@@ -36,6 +37,19 @@ folderTitle.setAttribute("class","displayfolder");
 folderTitle.setAttribute("style","margin-top:5px;text-align:center");
 folderArea.appendChild(folderTitle);
 }*/
+}
+}
+function init(){
+  var folderlisttemp = localStorage.getItem("folderList");
+if(folderlisttemp!=null){
+var temp = folderlisttemp.split(',');
+for(var i =0; i<temp.length;i++){
+    var fn = temp[i];
+    if(fn!=undefined){
+      folderList.push(fn);
+ 
+}
+}
 }
 }
 /** let the song added to the new folder
@@ -209,12 +223,15 @@ function displayfolders(){
 }
 }
 
-
+/** */
+init();
+displaylocal();
+//displayfolders();
 
 
 
     
-   
+  /** display for the weather API */ 
     document.getElementById('locationBtn').onclick = function checkWeather() {
         console.log('button clicked');
 
@@ -245,6 +262,4 @@ function displayfolders(){
     };    
 
 
-/** */
-displaylocal();
-//displayfolders();
+
