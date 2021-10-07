@@ -7,7 +7,7 @@ root {
 --border-radius: .3rem;
 }
 
-li {
+.navigate li {
 overflow: hidden;
 background-color: #38302e;
 display: inline-block;
@@ -16,7 +16,7 @@ display: inline-block;
 margin-right: 20%;
 float: left;
 }
-li a {
+.navigate li a {
 display: block;
 color: white;
 text-align: center;
@@ -24,13 +24,14 @@ padding: 14px 16px;
 text-decoration: none;
 }
 
-li a:hover:not(.active) {
+.navigate li a:hover:not(.active) {
 background-color: #E4f9FF;
 color:#38302e ;
 }
 
 .active {
 background-color: rgba(252, 56, 89, 0.8);
+
 }
 
 .createFolder{

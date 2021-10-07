@@ -13,32 +13,12 @@ if(folderName.length==0){
 else{
 var messagebox = document.getElementById("messagebox");
 messagebox.innerHTML='';
-/*
-var folderArea = document.getElementById("folder");
-
-//c img
-var folderimg = document.createElement("img")
-folderimg.setAttribute("src","./img/musicFolder.png");
-folderimg.setAttribute("style","margin-top:15px;display: block; margin-left: auto; margin-right: auto;");
-folderimg.setAttribute("alt","music folder icon");
-folderimg.setAttribute("width",120);
-folderimg.setAttribute("height",120);
-folderArea.appendChild(folderimg);
-//c name
-var folderTitle = document.createElement("h2")
-folderTitle.innerHTML=folderName;*/
-
 folderList.push(folderName);
 localStorage.setItem("folderList",folderList);
 localrefresh();
-/*
-folderTitle.setAttribute("id",folderName);
-folderTitle.setAttribute("class","displayfolder");
-folderTitle.setAttribute("style","margin-top:5px;text-align:center");
-folderArea.appendChild(folderTitle);
-}*/
 }
 }
+/**make sure won't erase history first when refresh the page */
 function init(){
   var folderlisttemp = localStorage.getItem("folderList");
 if(folderlisttemp!=null){
@@ -47,7 +27,6 @@ for(var i =0; i<temp.length;i++){
     var fn = temp[i];
     if(fn!=undefined){
       folderList.push(fn);
- 
 }
 }
 }
@@ -90,7 +69,11 @@ function localrefresh(){
   songArea.innerHTML = '';
   displaylocal();
 }
-
+/**display the selection -> drop down list, and clickable submit button
+ * input, class name: inputclass
+ * option, class name: optionclass
+ * select, classname: selectclass
+ */
 function displayselection(songname,songartist){
   var songArea = document.getElementById("songList");
   var div = document.createElement("div");
@@ -99,8 +82,8 @@ function displayselection(songname,songartist){
   var label = document.createElement("label");
   label.innerHTML = "select folder";
   var select = document.createElement("select");
+  select.setAttribute("class","selectclass");
   select.setAttribute("id",songname+songartist+"select");
-
   var folderlisttemp = localStorage.getItem("folderList");
   if(folderlisttemp!=null){
   var temp = folderlisttemp.split(',');
@@ -110,12 +93,14 @@ function displayselection(songname,songartist){
       if(folderName!=undefined){
         var option = document.createElement("option");
         option.setAttribute('value',folderName);
+        option.setAttribute('class','optionclass')
         option.innerHTML = folderName;
         select.appendChild(option)
         var input = document.createElement("input");
-        input.setAttribute("id",songname+","+songartist+","+"input");
-        console.log(input.id);
+      input.setAttribute("id",songname+","+songartist+","+"input");
+        //console.log(input.id);
       input.setAttribute("onclick","clickfunction(this.id)");
+      input.setAttribute("class","inputclass");
       input.setAttribute("type","submit");
       input.setAttribute("value","submit");
       input.setAttribute("style","display:inline;");   
@@ -129,9 +114,18 @@ function displayselection(songname,songartist){
   //div.appendChild(form);
   div.appendChild(label);
   songArea.appendChild(div);
+}
+/**
+ * 
+ * @param {*} folder_id 
+ * display into another html file
+ */
+function checkfolder(folder_id){
+  console.log("hehehe");
 
 }
 //var test= localStorage.getitem(num)-> var temp= test.split(',');->songtitle = temp[0]; -> songArtist = temp[1];
+/**display localstorage of songs and artist, in the default folder */
 function displaylocal(){
     var songArea = document.getElementById("songList"); 
 for(var i=0; i<localStorage.length;i++){
@@ -177,7 +171,7 @@ $(document).ready (function(){
 */
 
 
-//display folders
+/**display folders */
 function displayfolders(){
     var folderlisttemp = localStorage.getItem("folderList");
     if(folderlisttemp!=null){
@@ -187,17 +181,6 @@ function displayfolders(){
     for(var i =0; i<temp.length;i++){
         var folderName = temp[i];
         if(folderName!=undefined){
-     
-        //d img display
-    var folderimg = document.createElement("img")
-    folderimg.setAttribute("src","./img/musicFolder.png");
-    folderimg.setAttribute("style","margin-top:15px;display: block; margin-left: auto; margin-right: auto;");
-    folderimg.setAttribute("alt","music folder icon");
-    folderimg.setAttribute("id",folderName);
-    //folderimg.setAttribute("name",folderName);//draggable[0].outerText
-     folderimg.setAttribute("width",120);
-    folderimg.setAttribute("height",120);
-    folderArea.appendChild(folderimg);
     
 /*droppable
     document.getElementById(folderName).droppable({
@@ -206,15 +189,15 @@ function displayfolders(){
         //song 1- test1 -> 
         console.log(event.target.id);
       },
-    
-      
+
     })
     */
-   
         //d name
-    var folderTitle = document.createElement("h2")
+        /**the folder list class name: displayfolder */
+    var folderTitle = document.createElement("li")
     folderTitle.innerHTML=folderName;
     folderTitle.setAttribute("id",folderName);
+    folderTitle.setAttribute("onclick","checkfolder(this.id)");
     folderTitle.setAttribute("class","displayfolder");
     folderTitle.setAttribute("style","margin-top:5px;text-align:center");
     folderArea.appendChild(folderTitle);
@@ -223,10 +206,10 @@ function displayfolders(){
 }
 }
 
-/** */
+/** functions*/
 init();
 displaylocal();
-//displayfolders();
+displayfolders();
 
 
 
