@@ -8,7 +8,7 @@ function songListDisplay(songtitle,songuri,songartist){
 //console.log("works!: ");
 var musicsection = document.getElementById("musicList");
 var musicitem = document.createElement("a");
-musicitem.innerHTML = "Title:  "+songtitle+"   Artist:  "+songartist;
+musicitem.innerHTML = "Title:  "+songtitle+ "\<br>Artist:  "+songartist;
 var br = document.createElement("br");
 //create button -- add to default folder
 var addbutton = document.createElement("button");
