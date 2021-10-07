@@ -6,7 +6,7 @@ document.getElementById('addFolder').onclick = function addFolder(){
 var folderName = $('.folderName').val();//get folder name
 document.querySelector('.folderName').value = '';
 if(folderName.length==0){
-var errormessage = "please enter a valid name";
+var errormessage = "Please enter a valid name.";
 var messagebox = document.getElementById("messagebox");
 messagebox.innerHTML = errormessage;
 messagebox.setAttribute("style","color: red; font-size: medium;");
@@ -223,8 +223,9 @@ localStorage.setItem("pageName",id);
 /**display localstorage of songs and artist, in the default folder */
 function displaylocal(){
 var songArea = document.getElementById("songList"); 
+var h2 = document.createElement("h2");
+h2.innerHTML = "Unorganized Song List";
 var p = document.createElement("p");
-p.innerHTML = "Unorganized Song List";
 p.setAttribute("id","displaySong");
 songArea.appendChild(p);
 for(var i=0; i<localStorage.length;i++){
@@ -301,7 +302,7 @@ folderArea.appendChild(folderTitlea);
 
 //create delete button for the folders
 var delfolder = document.createElement("button");
-delfolder.innerHTML='delete';
+delfolder.innerHTML='Delete playlist';
 delfolder.setAttribute("id",folderName+","+"del");
 delfolder.setAttribute("onclick","deletefolder(this.id)");
 delfolder.setAttribute("class","defolderlclass");

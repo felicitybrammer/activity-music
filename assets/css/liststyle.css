@@ -72,9 +72,10 @@ margin-right: 0;
     text-align: start;
 }
 
-.songList p {
-    display: block;
+ p {
+    color:
 }
+
 
 .selectclass {
     border: 1px solid var(--primary);
@@ -116,6 +117,28 @@ margin-right: 0;
 }
 
 .delclass:hover {
+    background-color: #963528 ;
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+.defolderlclass {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--tertiary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    height: min-content;
+    margin-bottom: auto;
+    transition: all 0.3s ease;
+}
+
+.defolderlclass:hover {
     background-color: #963528 ;
     color: var(--font);
     cursor: pointer;
