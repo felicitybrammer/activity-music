@@ -91,6 +91,7 @@ if(songname == tempname && songartist==tempartist){
   for(var j=num; j<llength;j++){
     var s =[];
     var st = localStorage.getItem(j);
+    if(st!=key&& st!=null){
     var songtemp = st.split(',');
     var songfolder = songtemp[0];
     var songnametemp = songtemp[1];
@@ -101,6 +102,7 @@ if(songname == tempname && songartist==tempartist){
     s.push(songartisttemp);
     localStorage.setItem(j-1,s);
     }
+  }
   }
 }
 }
