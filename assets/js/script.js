@@ -107,8 +107,8 @@ if(songDetailList[n][3]==songuli){
   temp.push(songDetailList[n][1]);//songTitle
   temp.push(songDetailList[n][2]);//songArtist
   localStorage.setItem(localnum,temp);
-  var button = document.getElementById(songuli);
-  button. disabled = true;
+  var addbutton = document.getElementById(songuli);
+  addbutton. disabled = true;
 }
 }
 // localStorage.setItem('default',songuli);
