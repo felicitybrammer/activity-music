@@ -344,7 +344,7 @@ displayfolders();
       var lon = data.location.lon;
       var lan = data.location.lat
       console.log("lon: "+lon+"lan: "+lan)
-      /**use google map to get the same location as weather -- should have some error handling lines*/
+      /**use google map to get the same location as weather*/
      var options= {
       center: { lat: lan, lng: lon },
       zoom: 15,
