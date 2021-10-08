@@ -320,8 +320,6 @@ displaylocal();
 displayfolders();
 
 
-
-
 /** display for the weather API */ 
   document.getElementById('locationBtn').onclick = function checkWeather() {
       console.log('button clicked');
@@ -343,14 +341,27 @@ displayfolders();
       var currentWeather = document.createElement('p');
       currentTitle.innerHTML = 'Current Weather Conditions in ' + city + ':';
       currentWeather.innerHTML = 'Temp in Celsius:'+data.current.temp_c+'C'+' Feels like:'+data.current.feelslike_c+'C'+' Precipitation:'+data.current.precip_mm+' mm';
-      
+      var lon = data.location.lon;
+      var lan = data.location.lat
+      console.log("lon: "+lon+"lan: "+lan)
+      /**use google map to get the same location as weather */
+     //initMap();
+     var options= {
+      center: { lat: lan, lng: lon },
+      zoom: 15,
+    }
+    var map = new google.maps.Map(document.getElementById('map'),options);
+
+
       // currentTitle.setAttribute(
       // currentWeather.setAttribute('innerHTML', data.current);
       weatherContainerEl.appendChild(currentTitle);
       weatherContainerEl.appendChild(currentWeather);
       })
       .catch(error => "error");
-  };    
+  };  
+
+
 
 
 

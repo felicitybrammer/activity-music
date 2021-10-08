@@ -153,3 +153,7 @@ margin-bottom: 1px;
     background-color: rgba(255, 255, 255, 1);
     outline: none;
 }
+#map{
+    height: 400px;
+    width: 100%;
+}   
