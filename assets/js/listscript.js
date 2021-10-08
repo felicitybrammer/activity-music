@@ -350,6 +350,8 @@ displayfolders();
       zoom: 15,
     }
     var map = new google.maps.Map(document.getElementById('map'),options);
+    
+    
 
       weatherContainerEl.appendChild(currentTitle);
       weatherContainerEl.appendChild(currentWeather);
@@ -357,7 +359,6 @@ displayfolders();
       .catch(error => "error");
   };  
 
-
-
-
-
+  
+ 
+ 
