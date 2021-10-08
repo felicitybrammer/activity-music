@@ -45,8 +45,8 @@ var tempname = tempid[0];
 var tempartist = tempid[1];
 var select = document.getElementById(folderid+"select");
 var resultfolder = select.options[select.selectedIndex].text;
-console.log(tempid[0]+"artist:"+tempid[1]);
-console.log("folder: "+resultfolder);
+//console.log(tempid[0]+"artist:"+tempid[1]);
+//console.log("folder: "+resultfolder);
 for(var i=0; i<localStorage.length;i++){
 var key = localStorage.getItem("folderList");
 var songitem = localStorage.getItem(i);
@@ -344,17 +344,13 @@ displayfolders();
       var lon = data.location.lon;
       var lan = data.location.lat
       console.log("lon: "+lon+"lan: "+lan)
-      /**use google map to get the same location as weather */
-     //initMap();
+      /**use google map to get the same location as weather -- should have some error handling lines*/
      var options= {
       center: { lat: lan, lng: lon },
       zoom: 15,
     }
     var map = new google.maps.Map(document.getElementById('map'),options);
 
-
-      // currentTitle.setAttribute(
-      // currentWeather.setAttribute('innerHTML', data.current);
       weatherContainerEl.appendChild(currentTitle);
       weatherContainerEl.appendChild(currentWeather);
       })
