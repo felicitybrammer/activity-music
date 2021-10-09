@@ -92,7 +92,7 @@ li.setAttribute("class","folderSongList");
 ulist.appendChild(li);
 
 var delsong = document.createElement("button");
-delsong.innerHTML='delete';
+delsong.innerHTML='Delete';
 delsong.setAttribute("id",songname+","+songartist+","+"del");
 delsong.setAttribute("onclick","deletesong(this.id)");
 delsong.setAttribute("class","delsongclass");

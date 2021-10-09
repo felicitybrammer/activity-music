@@ -119,7 +119,8 @@ margin-right: 0;
     border: none;
 }
 
-.defolderlclass {
+.defolderlclass,
+.delsongclass {
     text-decoration-color: transparent;
     color: var(--font);
     background-color: var(--tertiary);
@@ -134,11 +135,25 @@ margin-right: 0;
     transition: all 0.3s ease;
 }
 
-.defolderlclass:hover {
+.defolderlclass:hover,
+.delsongclass:hover {
     background-color: #963528 ;
     color: var(--font);
     cursor: pointer;
     border: none;
+}
+
+.delsongclass {
+    margin-left: 5px;
+}
+
+.map {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    border-top: 12px solid var(--primary);
+    margin: 0;
+    width: 50%;
 }
 
 .folder{

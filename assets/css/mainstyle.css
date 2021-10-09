@@ -495,6 +495,21 @@ footer{
     .song-list {
         width: 100vw;
     }
+
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+ 
+    header nav ul li a {
+        font-size: 20px;
+    }
+ 
+    footer h2, footer div {
+        text-align: center;
+        width: 100%;
+    }
  
  }
  
