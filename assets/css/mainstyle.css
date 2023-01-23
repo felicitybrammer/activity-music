@@ -207,7 +207,7 @@
     padding-bottom: 25px;
 }
 
-.search {
+#search {
     border: 1px solid var(--primary);
     display: block;
     padding: 7px 15px;
@@ -219,12 +219,12 @@
     background-color: rgba(255, 255, 255, 0.75);
 }
 
-.search:focus {
+#search:focus {
     background-color: rgba(255, 255, 255, 1);
     outline: none;
 }
 
-.searchBtn,
+#searchBtn,
 .viewBtn,
 .addFolder,
 .inputclass {
@@ -241,7 +241,7 @@
     transition: all 0.3s ease;
 }
 
-.searchBtn:hover,
+#searchBtn:hover,
 .viewBtn:hover,
 .addFolder:hover,
 .inputclass:hover {
@@ -251,7 +251,7 @@
     border: none;
 }
 
-.searchBtn,
+#searchBtn,
 .addFolder {
     margin-left: 20px;
 }

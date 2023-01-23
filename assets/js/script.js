@@ -1,7 +1,8 @@
-var genreList = [];
-var songDetailList = [];
+//declare variable
+var genreList = []; //list of genre buttons
+var songDetailList = []; //playlist of chosen songs
 
-/**display all the songs from the API */
+// displays all the songs from the API
 function songListDisplay(songTitle, songUri, songArtist) {
   //for css, list class: songlist div id:musicList, each song id: song title;
   //button for each song to add to the localstorage, button id: each songUri, buttonclass: addButton;
@@ -127,8 +128,6 @@ function clickListen() {
     fetch('https://api.spotify.com')
       .then(response => response.json())
       .then(data => console.log(data));
-
-
   })
 }
 
@@ -138,11 +137,24 @@ function nearest(n, v) {
   return n;
 }
 
+// event listener for initial song search
+
+//change this from jQuery to JS
+var searchBtn = document.getElementById('searchBtn');
+searchBtn.onclick = getSongsByBPM;
+
+function getSongsByBPM(event) {
+  var bpmValue = document.getElementById("search").value; //works
+  
+  //document.querySelector(".search").value = '';
+  //removeAll();
+};
+
 $(".searchBtn").on("click", function (event) {
   var bpmValue = $(".search").val();
   document.querySelector(".search").value = '';
   removeAll();
-  //removeAll();
+  
   // limit the bpm range from 40 to 220
   if (bpmValue < 40) {
     bpmValue = 40;
