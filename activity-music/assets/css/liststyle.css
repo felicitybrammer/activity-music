@@ -1,0 +1,193 @@
+root {
+--primary: #384f5b;
+--secondary: #f69c20;
+--tertiary: #7e939f;
+--font: #E4F9FF;
+--background: #e5e5e5;
+--border-radius: .3rem;
+}
+
+.navigate{
+margin-right: 0;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.hero-container h2 {
+    color: var(--primary);
+    font-size: 27px;
+    font-weight: 600;
+    margin-left: 20px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.createFolder,
+.weather-div,
+.songList {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    background-color: var(--background);
+    color: var(--primary);
+    padding: 20px;
+    width: auto;
+    margin: 3.5%;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 15px;
+}
+
+.createFolder p {
+    margin-left: 20px;
+}
+
+#weather-container {
+    margin: 0 40px 0 20px;
+    box-shadow: none;
+    max-width: fit-content;
+}
+
+#weather-container h2 {
+    font-size: 20px;
+    font-weight: 300;
+    text-align: left;
+}
+
+#weather-container p {
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.songList {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    max-height: 450px;
+    width: 450px;
+    text-align: start;
+}
+
+
+.selectclass {
+    border: 1px solid var(--primary);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--primary);
+    width: max-content;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.selectclass:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+.inputclass {
+    width: max-content;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.delclass {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--tertiary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    margin-bottom: auto;
+    transition: all 0.3s ease;
+}
+
+.delclass:hover {
+    background-color: #963528 ;
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+.defolderlclass,
+.delsongclass {
+    text-decoration-color: transparent;
+    color: var(--font);
+    background-color: var(--tertiary);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    width: max-content;
+    height: min-content;
+    margin-bottom: auto;
+    transition: all 0.3s ease;
+}
+
+.defolderlclass:hover,
+.delsongclass:hover {
+    background-color: #963528 ;
+    color: var(--font);
+    cursor: pointer;
+    border: none;
+}
+
+.delsongclass {
+    margin-left: 5px;
+}
+
+.map {
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: center;
+    border-top: 12px solid var(--primary);
+    margin: 0;
+    width: 50%;
+}
+
+.folder{
+display: flex;
+width: max-content;
+text-align:center;
+margin-right: 10px;
+margin-bottom: 1px;
+}
+
+#messagebox {
+    margin-left: 20px;
+}
+
+.folderName,
+.locationText {
+    border: 1px solid var(--primary);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--primary);
+    width: max-content;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.75);
+}    
+
+.folderName:focus,
+.locationText:focus {
+    background-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+#map{
+    height: 400px;
+    width: 100%;
+}   

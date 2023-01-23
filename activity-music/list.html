@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Song Organize</title>
+<link rel="icon" type="image/png" href="./img/icon.jpg"/>
+<link rel="stylesheet" href="./assets/css/reset.css">
+<link rel="stylesheet" href="./assets/css/mainstyle.css">
+<link rel="stylesheet" href="./assets/css/liststyle.css">
+
+</head>
+<body>
+<!-- Header + Navigation bar -->
+<header>
+    <!--navigate bar -->
+    <div class="logo">
+        <img src ="img/iconfinder-icon.svg" alt="BPM logo">
+    </div>
+    <h1>Train To The Beat!</h1>
+
+    <div id="navigate" class="navigate">
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a class="active" href="./list.html">Song List</a></li>
+        <li><a href="./about.html">About</a></li>
+      </ul>
+    </div>
+</header>
+
+<main class="hero-container">
+    <div id="location-container" class="weather-div">
+        <h2>Check The Weather</h2>
+        <br/>
+        <input class="locationText" type="text" placeholder="Enter city..." maxlength="15">
+        <br/>
+        <button id="locationBtn" class="searchBtn"> Get Weather </button>
+        <br/>
+        <div id="weather-container" class="weather-div"></div>
+       
+    </div>
+    <div id="createFolder" class="createFolder">
+        <h2> Create Playlist</h2>
+        <p>Start by creating your playlist.</p>
+            <br/>
+            <input class="folderName" type="text" placeholder="Playlist Name..." maxlength="50">
+            <br/>
+        <button id="addFolder" class="addFolder"> Add Playlist </button>
+            <br/>
+            <span id="messagebox"></span>
+            <div >
+                <ul class="folder" id="folder"></ul>
+            </div>    
+        </div>
+
+    <div class="songList" id="songList">
+        <h2 id="displaySong">Unorganized Song List</h2>
+        <!--<p id="displaySong">Unorganized Song List</p>!-->
+    </div>
+
+</main>
+<div id="map" class="map"></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="./assets/js/listscript.js"></script>
+
+
+
+<!--AIzaSyBfgP38AgA2hvb0WEcumakCFAkGE1GfEIs-->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfgP38AgA2hvb0WEcumakCFAkGE1GfEIs&libraries=&v=weekly"
+  async
+></script>
+
+
+</body>
+
+<footer>
+&copy; Team - Grogu &#10084
+</footer>
+
+</html>
