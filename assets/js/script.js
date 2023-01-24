@@ -138,6 +138,8 @@ function removeAll() {
 
 
 function getSongsByBPM(event) {
+  event.preventDefault();
+  
   let bpmValue = document.getElementById("search").value; //works
   let requestUrl = 'https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm=';
   let bpmSearch = requestUrl + bpmValue;
@@ -150,10 +152,10 @@ function getSongsByBPM(event) {
     .then(response => response.json())
     .then(data => {
       let bpmListLength = data['tempo'].length;
-
-      for (let i = 0; i < bpmListLength; i++) {
+      // console.log(data['tempo'][0]);
+      for (let i = 0; i < 5; i++) {
         //collect track information
-        let genre = data['tempo'][i]['artist']['genres'];
+        let genre = data['tempo'][i]['artist']['genres'][0];
         let songImg = data['tempo'][i]['album']['img'];
         let songUri = data['tempo'][i]['song_uri'];
         let songId = data['tempo'][i]['song_id'];
@@ -178,12 +180,12 @@ function getSongsByBPM(event) {
         console.log('displaying songs');
         console.log(songList); //contains all songs with specified 
 
-        let diff = $(genre).not(genreList).get();
-        //console.log(diff);
-        //console.log("diff: "+diff);
-        for (let k = 0; k < diff.length; k++) {
-          genreList.push(diff[k]);
-        };
+        // let diff = $(genre).not(genreList).get();
+        
+        // //console.log("diff: "+diff);
+        // for (let k = 0; k < diff.length; k++) {
+        //   genreList.push(diff[k]);
+        // };
 
         //songGenreDisplay(genreList);
         console.log('displaying genres');
