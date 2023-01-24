@@ -267,7 +267,7 @@ div{
     margin-left: 20px;
     margin-top: 20px;
 }
-.genereoption,
+.genreOption,
 .displayfolder {
     background-color: var(--secondary);
     color: var(--primary);
@@ -281,7 +281,7 @@ div{
     }
 
 
-.genereoption:hover,
+.genreOption:hover,
 .displayfolder:hover {
     background-color:var(--primary);
     color: var(--font);
