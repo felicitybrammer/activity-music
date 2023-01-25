@@ -269,6 +269,10 @@ div {
     margin-top: 20px;
 }
 
+.hide {
+    visibility: hidden;
+}
+
 .genreOption,
 .displayfolder {
     background-color: var(--secondary);
@@ -516,6 +520,7 @@ footer {
     }
 
 }
+
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
