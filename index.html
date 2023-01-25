@@ -43,28 +43,40 @@
                 </p>
             </div>
             <form class="parameter-form">
+                <h3>Select your BPM preference:</h3>
+                <label for="BPM">Select your desired beats per minute:</label>
+                <select id="search" name="bpm" type="number" placeholder="Beats per minute">
+                    <option value="40">40</option>
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">60</option>
+                    <option value="60">170</option>
+                    <option value="60">180</option>
+                    <option value="60">190</option>
+                    <option value="200">200</option>
+                    <option value="210">210</option>
+                    <option value="220">220</option>
+                </select>
+                <button id="searchBtn" type="submit" data-inline="true">Search</button>
+                <div id="narrow-search"></div>
+                <div id="genreList" class="genre-list"></div>
+
                 <div>
-                    <h3>Select your BPM preference:</h3>
-                    <label for="BPM">Enter your desired beats per minute:
-                        * if you enter less than 40, your choice will be entered as 40
-                        * if you enter more than 220, your choice will be entered as 220
-                        Note that all values entered will be rounded to the nearest 5 bpm
-                    </label>
-
-                    <input id="search" type="number" placeholder="Beats per minute" maxlength="3">
-                    <button id="searchBtn" type="submit" data-inline="true">Search</button>
-                    <div id="genreList" class="genre-list">
-                        <p>Now let's narrow your search by choosing a genre:</p>
-                    </div>
-                    
-
-                    <div>
-                        <p>
-                            Once you select your BPM and genre, click the following link to view your song selection.
-                        </p>
-                        <a href="#musicList" class="viewBtn">View songs</a>
-                    </div>
+                    <p>
+                        Once you select your BPM and genre, click the following link to view your song selection.
+                    </p>
+                    <a href="#musicList" class="viewBtn">View songs</a>
                 </div>
+
             </form>
         </section>
 

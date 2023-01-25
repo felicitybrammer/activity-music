@@ -5,7 +5,8 @@ let songList = []; //playlist of chosen songs
 //enter desired BPM into the form, collect results from API
 function getSongsByBPM(event) {
   event.preventDefault();
-  let bpmValue = document.getElementById("search").value; //works
+  let bpmValue = document.getElementById("search").value; 
+  console.log(bpmValue);
   let requestUrl = 'https://api.getsongbpm.com/tempo/?api_key=f3c958b0703b54d22b8335f49728191a&bpm=';
   let bpmSearch = requestUrl + bpmValue;
   //document.querySelector(".search").value = '';
@@ -32,13 +33,16 @@ function getSongsByBPM(event) {
         singleSong.songTitle = songTitle;
         singleSong.songUri = songUri;
         singleSong.songArtist = songArtist;
-        console.log(singleSong);
+        //console.log(singleSong);
         //total songlist
         songList.push(singleSong); //push each song object onto songlist array
       };
       console.log(songList);
       //song list display
       //songListDisplay(songTitle, songUri, songArtist);
+      var narrowSearchText = document.createElement('p');
+      narrowSearchText.textContent = "Now let's narrow your search by choosing a genre:";
+      document.getElementById('narrow-search').appendChild(narrowSearchText);
       displayGenres(songList);
     })
   //.catch(error => console.log('error'));
@@ -49,10 +53,11 @@ function displayGenres(songList) {
   //collect list of genres from songList
   for (let i = 0; i < songList.length; i++) {
     let genreCategory = songList[i].genre;
-    console.log(genreCategory);
-    genreList.push(genreCategory);
-    console.log(genreList);
+    //console.log(genreCategory);
+    genreList.push(genreCategory);  
   }
+  console.log(genreList);
+//filter out duplicate genres
 
   // add the list of genres to the page
   for (let j = 0; j < genreList.length; j++) {
@@ -65,7 +70,48 @@ function displayGenres(songList) {
     genreItem.setAttribute("class", "genreOption");
   }
   //disable the search button
+
 };
+
+var genreButton = document.getElementById('genreList');
+
+genreButton.onclick = clickGenreHandler;
+// click on genre button to narrow choices
+function clickGenreHandler(event) {
+  event.preventDefault();
+  //hide buttons that are not the target?
+    let genreName = event.target.innerHTML;
+    console.log(genreName);
+    
+    console.log(songList);
+//filter track by genre
+
+    //let genreSongList = [];
+    // for (let q = 0; q < songList.length; q++) {
+    //   currentgenre = [];
+    //   currentgenre.push(songList[q][0]);
+    //   //  / console.log(currentgenre.length);
+    //   for (let r = 0; r < currentgenre.length; r++) {
+    //     if (currentgenre[0] != null && currentgenre[0][r] == genreName) {
+    //       //    testnum++;
+    //       //console.log("G: "+currentgenre[r]);
+    //       // console.log("title: "+songList[q][1]);
+    //       //console.log(songList[q][0]);
+    //       genreSongList.push(songList[q]);
+    //     }
+    //   }
+    // }
+    // //console.log("num: "+testnum);
+    // removeAll();
+    // for (let p = 0; p < genreSongList.length; p++) {
+    //   //0. genres,1. songTitle,2. songArtist,3. songUri
+    //   songListDisplay(genreSongList[p][1], genreSongList[p][3], genreSongList[p][2]);
+    // }
+  }
+
+
+
+
 
 // displays all the songs from the API
 function songListDisplay(songTitle, songUri, songArtist) {
@@ -107,36 +153,7 @@ function removeAll() {
   genreSection.innerHTML = '';
 }
 
-// click on genre button to narrow choices
-function clickGenre() {
-  $('#genreList').on('click', '.genreOption', function (e) {
-    let genreName = e.target.innerHTML;
-    let genreSongList = [];
-    //  let testnum =0;
-    //console.log(genreName);
-    for (let q = 0; q < songList.length; q++) {
-      currentgenre = [];
-      currentgenre.push(songList[q][0]);
-      //  / console.log(currentgenre.length);
-      for (let r = 0; r < currentgenre.length; r++) {
-        if (currentgenre[0] != null && currentgenre[0][r] == genreName) {
-          //    testnum++;
-          //console.log("G: "+currentgenre[r]);
-          // console.log("title: "+songList[q][1]);
-          //console.log(songList[q][0]);
-          genreSongList.push(songList[q]);
-        }
-      }
-    }
-    //console.log("num: "+testnum);
-    removeAll();
-    for (let p = 0; p < genreSongList.length; p++) {
-      //0. genres,1. songTitle,2. songArtist,3. songUri
-      songListDisplay(genreSongList[p][1], genreSongList[p][3], genreSongList[p][2]);
-    }
-  })
 
-}
 // /**list add to local based on addButton+
 //  * functionally complet e, please let  me know what info do you need from here to display music from other API
 // */
