@@ -73,6 +73,7 @@ function displayGenres(songList) {
     genreItem.setAttribute("class", "genreOption");
   }
   // TODO: disable the search button
+  document.getElementById('search').addClass('disabled');
 
 };
 

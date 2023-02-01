@@ -28,7 +28,7 @@
 }
 
 * {
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     margin: 0;
     padding: 0;
 
@@ -104,7 +104,7 @@ body {
     align-items: flex-start;
     background-position: 100%;
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 
@@ -173,10 +173,12 @@ p {
 
 .parameter-form {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    align-items: center;
     background-color: var(--background);
     color: var(--primary);
-    padding: 0 20px 30px 0;
+    padding: 10px 20px;
     width: 40%;
     margin: 3.5%;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
@@ -184,45 +186,52 @@ p {
 }
 
 .parameter-form h3 {
-    font-size: 24px;
+    font-size: 1.5rem;
     margin: 0;
     padding-left: 20px;
     font-weight: bolder;
+    flex: 1;
 }
 
 
 
 .parameter-form label {
     display: block;
-    margin: 5px 0 20px 0;
+    margin: 5px 10px 20px 0;
     padding-left: 20px;
-    font-size: 17px;
+    font-size: 1.2rem;
+    flex: 1;
 }
 
 .parameter-form input {
+    font-size: 1.25rem;
     margin-left: 20px;
+    flex: 2;
 }
 
 .parameter-form p {
-    font-size: 17px;
+    font-size: 1.2rem;
     padding-bottom: 25px;
+    flex: 1;
 }
 
 #search {
     border: 1px solid var(--primary);
     display: block;
-    padding: 7px 15px;
-    font-size: 16px;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
     color: var(--primary);
     width: max-content;
     margin-bottom: 15px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 #search:focus {
     background-color: rgba(255, 255, 255, 1);
     outline: none;
+    cursor: pointer;
 }
 
 #searchBtn,
@@ -252,14 +261,22 @@ p {
     border: none;
 }
 
-#searchBtn,
+#searchBtn {
+    margin:  0px  auto ;
+}
+
+.disabled {
+    background-color: var(--tertiary);
+}
+
+/* #searchBtn, */
 .addFolder {
     margin-left: 20px;
 }
 
-.parameter-form a {
+/* .parameter-form a {
     background-color: var(--tertiary);
-}
+} */
 
 div {
     position: relative;
@@ -279,9 +296,9 @@ div {
     color: var(--primary);
     border-radius: 5px;
     width: max-content;
-    padding: 0 5px 0 5px;
+    padding: 5px;
     transition: all 0.3s ease;
-    border: none;
+    /* border: none; */
     margin-right: 2px;
     margin-bottom: 2px;
 }
@@ -297,7 +314,7 @@ div {
 
 .genre-list {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: flex-start;
 }
 
@@ -476,6 +493,7 @@ footer {
     bottom: 10px;
     width: 100%;
 }
+
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
